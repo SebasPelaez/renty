@@ -1,0 +1,9 @@
+// This files is used to add general styles
+// and override original bootstrap's rules
+
+// Variables
+$font-family-sans-serif: 'Work Sans', sans-serif;
+
+// imports
+@import "node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Work+Sans');
