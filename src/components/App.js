@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const App = () => {
   return(
-    <div>
+    <div id="app">
       <h1>
         Hello, Team!
         <FontAwesomeIcon 
@@ -13,6 +13,7 @@ const App = () => {
           size="md"
         />
       </h1>
+      <Footer />
     </div>
   )
 }
