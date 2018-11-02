@@ -11,8 +11,11 @@ const Footer = () => {
           <div className="col-sm-auto mb-4">
             <div className="title font-weight-bold mb-3">Name Not Found Team</div>
             {
-              DEVELOPERS.map(developer => 
-                <Developer {...developer}/> 
+              DEVELOPERS.map((developer, index) =>
+                <Developer
+                  key={index}
+                  {...developer}
+                />
               )
             }
           </div>

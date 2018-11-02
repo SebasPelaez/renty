@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> renders the component 1`] = `
+<footer
+  className="footer"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row justify-content-around"
+    >
+      <div
+        className="col-sm-auto mb-4"
+      >
+        <div
+          className="title font-weight-bold mb-3"
+        >
+          Name Not Found Team
+        </div>
+        <Developer
+          key="0"
+          name="Juan C. Morales"
+          position="CTO"
+        />
+        <Developer
+          key="1"
+          name="Juan F. Giraldo"
+          position="Skater Developer"
+        />
+        <Developer
+          key="2"
+          name="Santiago Cadavid"
+          position="Lost Developer"
+        />
+        <Developer
+          key="3"
+          name="Juan S. Peláez"
+          position="Developer"
+          realSkill="Backend"
+        />
+        <Developer
+          key="4"
+          name="Juan E. Marín"
+          position="Developer"
+          realSkill="Angular"
+        />
+      </div>
+      <div
+        className="col-sm-4 mb-4"
+      >
+        <div
+          className="title font-weight-bold mb-3"
+        >
+          About Us
+        </div>
+        <p
+          className="text-justify"
+        >
+          We're a cool team of students from the
+          <a
+            href="https://www.udea.edu.co"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+             University of Antioquia 
+          </a>
+          that wanna improves their knowledge, in this way, we've started this project called Renty with the purpose of learn about Frontend Development, React, Redux, Team working and in general, all topics involved in the company's devolopment software process.
+        </p>
+      </div>
+      <div
+        className="col-sm-auto mb-4"
+      >
+        <div
+          className="title font-weight-bold mb-3"
+        >
+          Contact Us
+        </div>
+        <div
+          className="mb-2"
+        >
+          <FontAwesomeIcon
+            border={false}
+            className="mr-2"
+            fixedWidth={false}
+            flip={null}
+            icon="paper-plane"
+            inverse={false}
+            listItem={false}
+            mask={null}
+            pull={null}
+            pulse={false}
+            rotation={null}
+            size={null}
+            spin={false}
+            symbol={false}
+            title=""
+            transform={null}
+          />
+          contact@namenotfound.co
+        </div>
+        <div
+          className="mb-2"
+        >
+          <FontAwesomeIcon
+            border={false}
+            className="mr-2"
+            fixedWidth={false}
+            flip={null}
+            icon="phone"
+            inverse={false}
+            listItem={false}
+            mask={null}
+            pull={null}
+            pulse={false}
+            rotation={null}
+            size={null}
+            spin={false}
+            symbol={false}
+            title=""
+            transform={null}
+          />
+          + 57 (4) 123 4567
+        </div>
+        <div
+          className="mb-2"
+        >
+          <FontAwesomeIcon
+            border={false}
+            className="mr-2"
+            fixedWidth={false}
+            flip={null}
+            icon="map-marker-alt"
+            inverse={false}
+            listItem={false}
+            mask={null}
+            pull={null}
+            pulse={false}
+            rotation={null}
+            size={null}
+            spin={false}
+            symbol={false}
+            title=""
+            transform={null}
+          />
+          Medellín 
+          <span>
+            •
+          </span>
+           Colombia
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+`;
