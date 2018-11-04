@@ -1,11 +1,11 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Header from '../containers/Header'
+import Navbar from '../containers/header/Navbar'
 
 const App = () => {
   return(
     <div>
-      <Header/>
+      <Navbar />   
       <h1>
         Hello, Team!
         <FontAwesomeIcon 
