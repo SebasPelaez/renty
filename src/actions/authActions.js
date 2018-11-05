@@ -1,7 +1,6 @@
-import firebase from 'firebase'
-
 export const signIn = (socialNetwork) => {
     return (dispatch, getState, { getFirebase }) => {
+        const firebase = getFirebase();
         var provider
         switch (socialNetwork) {
             case 'Facebook':

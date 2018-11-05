@@ -4,11 +4,13 @@ import { connect } from 'react-redux'
 import { signIn } from '../../actions/authActions'
 
 class SignIn extends Component {
+
   state = {
     user: null
   }
 
   handleAuthWithGoogle() {
+    console.log("ESTA LLEGANDO ALGO POR LAS PROPS SINGED OUT LINKS",this.state);
     this.props.signIn('Google')
   }
 
