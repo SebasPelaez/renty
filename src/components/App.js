@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Navbar from '../containers/header/Navbar'
+import Navbar from '../containers/header/navbar/Navbar'
 
 const App = () => {
   return(
@@ -11,7 +11,7 @@ const App = () => {
         <FontAwesomeIcon 
           icon="ghost"
           color="indigo"
-          size="md"
+          size="sm"
         />
       </h1>
     </div>
