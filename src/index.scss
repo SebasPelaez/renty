@@ -8,3 +8,73 @@ $font-family-brand: 'Baloo', cursive;
 // imports
 @import "node_modules/bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Work+Sans|Baloo');
+
+*{
+    box-sizing: border-box;
+}
+
+.popup-content{
+    width: 300px !important;
+}
+
+.login-container{
+    width: 100%;
+}
+
+.login-header-logo{
+    font-family: $font-family-brand;
+    font-size: 1.75rem !important;
+    background-color: #12223D;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+    text-align: center;
+}
+
+.login-header-text{
+    font-family: $font-family-sans-serif;
+}
+
+.login-action{
+    font-family: $font-family-sans-serif;
+    text-align: center;
+}
+
+.google-btn, .fb-btn {
+    
+    display: flex;
+    flex-wrap: nowrap;
+    background: white;
+    border-radius: 5px;
+    font-family: $font-family-sans-serif;
+    text-align: left;
+    width: 280px;
+    padding: 3px;
+
+    p{
+        
+        display: inline-block;
+        width: 240px;
+    }
+}
+
+.google-logo{
+
+    display: inline-block;
+    border-radius: 3px;
+    background: url("https://drive.google.com/uc?id=1hOnOcMJ8d6WzgJ9icIFnkpGAmVabtK2Z");
+    background-repeat: no-repeat;
+    background-size: contain;
+    overflow: hidden;
+    width: 30px;
+}
+
+.fb-logo{
+    display: inline-block;
+    border-radius: 3px;
+    background: url("https://drive.google.com/uc?id=1GrkgScOByYCsweS4u20RnSm4Q8uF2FlE");
+    background-repeat: no-repeat;
+    background-size: contain;
+    overflow: hidden;
+    width: 30px;
+}
