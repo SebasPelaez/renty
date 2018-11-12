@@ -1,0 +1,67 @@
+@import '../index.scss';
+
+*{
+    box-sizing: border-box;
+}
+
+.popup-content{
+    width: 300px !important;
+}
+
+.login-container{
+    width: 100%;
+    padding: 10px;
+}
+
+.login-header-logo{
+    font-family: $font-family-brand;
+    font-size: 1.75rem !important;
+    background-color: #12223D;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+    text-align: center;
+}
+
+.login-header-text{
+    font-family: $font-family-sans-serif;
+}
+
+.login-action{
+    font-family: $font-family-sans-serif;
+    text-align: center;
+}
+
+.google-btn, .fb-btn{        
+    border: none;
+    background: inherit;
+    display: block;
+    margin: auto;
+    width: 90%;
+    padding: 0px;
+    height: 60px;
+}
+
+.fb-btn {
+    width: 88%;
+    background: white;
+    border: 0.2px gainsboro solid;
+    box-shadow: 0px 1px 2px gainsboro;
+    border-radius: 5px;
+    font-family: Coiny;  
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;  
+    padding: 5px;  
+    margin-bottom: 10px;
+}
+
+.fb-btn > *{
+    margin: auto;
+}
+
+.fb-logo{
+    border-radius: 3px;
+    overflow: hidden;
+    width: 30px;
+}
