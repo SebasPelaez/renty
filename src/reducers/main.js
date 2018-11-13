@@ -1,5 +1,9 @@
 import { combineReducers } from 'redux'
+import { carSearch, cars } from './car'
 
-export const rootReducer = combineReducers({
-  hello: "Hello World!"
-})
+const rootReducer = combineReducers({
+  carSearch,
+  cars,
+ })
+
+export default rootReducer
