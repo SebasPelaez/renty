@@ -21,7 +21,7 @@ const SignIn = ({ authError, signIn }) => {
             </div>
           </div>
           <div className="login-action">
-            <hr></hr>
+            <hr />
             <h4> Puedes hacerlo con </h4>
             <button className="google-btn" type="submit"
               onClick={() => signIn('GOOGLE')}>
