@@ -45,13 +45,13 @@ const datepickerWrapper = (props) => {
   ]);
   return (
     <DateRangePicker
-                {...omitedProps}
-                showClearDates
-                onDatesChange={props.onDatesChange}
-                onFocusChange={props.onFocusChange}
-                focusedInput={props.focusedInput}
-                startDate={props.startDate}
-                endDate={props.endDate} />
+      {...omitedProps}
+      showClearDates
+      onDatesChange={props.onDatesChange}
+      onFocusChange={props.onFocusChange}
+      focusedInput={props.focusedInput}
+      startDate={props.startDate}
+      endDate={props.endDate} />
   )
 }
 
