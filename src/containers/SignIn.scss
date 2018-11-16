@@ -32,17 +32,8 @@
     text-align: center;
 }
 
-.google-btn, .fb-btn{        
-    border: none;
-    background: inherit;
-    display: block;
+.social-btn {
     margin: auto;
-    width: 90%;
-    padding: 0px;
-    height: 60px;
-}
-
-.fb-btn {
     width: 88%;
     background: white;
     border: 0.2px gainsboro solid;
@@ -56,7 +47,7 @@
     margin-bottom: 10px;
 }
 
-.fb-btn > *{
+.social-btn > *{
     margin: auto;
 }
 
