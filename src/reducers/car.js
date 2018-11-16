@@ -2,7 +2,7 @@ import {
   REQUEST_CARS,
   RECEIVE_CARS,
   SEARCH_CARS
-} from '../actions/CarActions'
+} from '../actions/car'
 
 let initialCarsState = {
   isFetching: false,

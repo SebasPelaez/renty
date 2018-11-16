@@ -31,9 +31,9 @@ export function fetchCars(search) {
   return dispatch => {
     dispatch(requestCars(search))
     
-    let searchParams = `from=${search.from}&to=${search.to}&type=${seach.type}&pickup=${search.pickup}`
+    let searchParams = `from=${search.from}&to=${search.to}&type=${search.type}&pickup=${search.pickup}`
 
-    return axios.get(`${BASE_API_URL}/cars/search?${searchParams}`)
+    return axios.get('http://www.mocky.io/v2/5bea29402e0000f947f147ee')
       .then(
         res => dispatch(receiveCars(res.data)),
         error => console.log('An error ocurred.', error)

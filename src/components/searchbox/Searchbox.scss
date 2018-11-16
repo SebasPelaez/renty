@@ -1,0 +1,14 @@
+@import '../../index.scss';
+
+.searchbox {
+  border-radius: 10px;
+  padding: 2em 1em;
+  background-color: $white;
+  margin-top: 2em;
+
+  #searchbox-form {
+    button[type="submit"] {
+      cursor: pointer;
+    }
+  } 
+}
