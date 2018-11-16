@@ -1,5 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Pickup from './Pickup'
 
 const App = () => {
   return(
@@ -12,6 +13,7 @@ const App = () => {
           size="md"
         />
       </h1>
+      <Pickup />
     </div>
   )
 }
