@@ -1,58 +1,54 @@
 @import '../index.scss';
 
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
-.popup-content{
-    width: 300px !important;
-}
+.auth-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
 
-.login-container{
-    width: 100%;
-    padding: 10px;
-}
-
-.login-header-logo{
-    font-family: $font-family-brand;
-    font-size: 1.75rem !important;
-    background-color: #12223D;
-    border-radius: 5px;
-    padding: 5px;
-    color: white;
-    text-align: center;
-}
-
-.login-header-text{
-    font-family: $font-family-sans-serif;
-}
-
-.login-action{
-    font-family: $font-family-sans-serif;
-    text-align: center;
-}
-
-.social-btn {
-    margin: auto;
-    width: 88%;
-    background: white;
-    border: 0.2px gainsboro solid;
-    box-shadow: 0px 1px 2px gainsboro;
-    border-radius: 5px;
-    font-family: Coiny;  
+  .btn-social {
+    padding: .5rem 1rem;
+    border-radius: 50px;
+    border: 1px solid $gray-500;
+    background-color: $white;
     display: flex;
-    flex-wrap: nowrap;
-    align-items: center;  
-    padding: 5px;  
-    margin-bottom: 10px;
+    align-items: center;
+    width: 100%;
+    transition: background-color .3s ease-out;
+    color: $gray-700;
+
+    &:nth-child(odd) {
+      margin-bottom: .5rem;
+    }
+
+    &:nth-child(even) {
+      margin: 0;
+    }
+
+    &:hover {
+      background-color: #12223D;
+      color: $white;
+    }
+
+    img {
+      max-width: 1.5rem;
+      max-height: 1.5rem;
+      margin-right: 1rem;
+    }
+  }
 }
 
-.social-btn > *{
-    margin: auto;
+.popup-wrapper {
+  padding: calc(2em - 5px);
+  color: $gray-700;
 }
 
-.fb-logo{
-    border-radius: 3px;
-    overflow: hidden;
-    width: 30px;
+.popup-content {
+  border-radius: 5px;
+  width: 350px !important;
+  max-width: 100% !important;
 }
