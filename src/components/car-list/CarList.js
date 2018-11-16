@@ -52,22 +52,16 @@ const CarList = ({ cars, isFetching }) => {
     return <span> cargando...</span>
   } else if (cars.length === 0) {
     return(
-      <p>
-        Nothing to show!
-        <br/>
+      <p>Nothing to show!<br/>
         Try With another word c:
       </p>
-      
     )
   } else {
-    return(
-    <div className="container-flex">
-        {cars.map(car => 
-            <Car
-            key={car.id}
-            {...car}
-          />
-        )}
+      return(
+        <div className="container-flex">
+          {cars.map(car => 
+            <Car key={car.id} {...car}/>
+          )}
         </div>
     )
   }
