@@ -1,33 +1,47 @@
 import React, { Component } from 'react'
 import { fetchCars } from '../../actions/car'
+import 'react-dates/initialize';
 import TypeSelector from '../typeSelector/TypeSelector'
+import Datepicker from '../datepicker/Datepicker'
 import './Searchbox.scss'
 
 class Searchbox extends Component {
   constructor(props) {
     super(props)
+
+    let focusedInput = null;
+    if (props.autoFocus) {
+      focusedInput = 'startDate';
+    } else if (props.autoFocusEndDate) {
+      focusedInput = 'endDate';
+    }
+
     this.searchRentalCars = this.searchRentalCars.bind(this)
-    this.updateStartDate = this.updateStartDate.bind(this)
     this.handleChangeType = this.handleChangeType.bind(this)
     this.updateCarType = this.updateCarType.bind(this)
     this.state = {
       pickup: '',
-      startDate: '',
-      endDate: '',
-      type: 'Sedan'
+      startDate: props.initialStartDate,
+      endDate: props.initialEndDate,
+      type: 'Sedan',
+      focusedInput
     }
+
+    this.onDatesChange = this.onDatesChange.bind(this);
+    this.onFocusChange = this.onFocusChange.bind(this); 
   }
 
-  updateStartDate(value) {
+  stateDateWrapper = date => date
+
+  onDatesChange({ startDate, endDate }) {    
     this.setState({
-      startDate: value
-    })
+      startDate: startDate && this.stateDateWrapper(startDate),
+      endDate: endDate && this.stateDateWrapper(endDate),
+    });
   }
 
-  updatePickup(value) {
-    this.setState({
-      pickup: value
-    })
+  onFocusChange(focusedInput) {
+    this.setState({ focusedInput });
   }
 
   handleChangeType(event) {
@@ -48,17 +62,21 @@ class Searchbox extends Component {
 
   render() {
     return(
-      <div className="searchbox col-sm-3 shadow-sm">
-        <h4>Discover new rental car deals.</h4>
-        <h5>How much will you save?</h5>
+      <div className="searchbox col-sm-4 shadow-sm">
+        <h4>Search rental cars</h4>
 
-        <h6>Time</h6>
+        <h6 className="mt-4">Time</h6>
+        <Datepicker
+          onDatesChange={this.onDatesChange}
+          onFocusChange={this.onFocusChange}
+          focusedInput={this.state.focusedInput}
+          startDate={this.state.startDate}
+          endDate={this.state.endDate} />
 
-        <h6>Type of Vehicle</h6>
+        <h6 className="mt-4">Type of Vehicle</h6>
         <form id="searchbox-form" onSubmit={this.searchRentalCars}>
           <TypeSelector defaultValue={this.state.type} updateCarType={this.updateCarType} />
-
-          <button className="btn btn-success mt-3" type="submit" form="searchbox-form">
+          <button className="btn btn-success mt-4" type="submit" form="searchbox-form">
             Search
           </button>
         </form>
