@@ -25,7 +25,7 @@ function cars(state = initialCarsState, action) {
     case RECEIVE_CARS:
       return Object.assign({}, state, {
         isFetching: false,
-        items: action.cars,
+        items: state.items.concat(action.cars),
         lastUpdated: action.receivedAt
       })
     default:

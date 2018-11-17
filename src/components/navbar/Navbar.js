@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
-import './Navbar.scss'
-import SignedInLinks from '../SignedInLinks'
+import SignedInLinks from '../../containers/SignedInLinks'
 import SignedOutLinks from '../GuestLinks'
+import './Navbar.scss'
 
 const Navbar = ({ auth }) => {
+  
   const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />
+
   return (
     <nav className="navbar navbar-expand-lg justify-content-between">
       <Link className="navbar-brand" to='/'>Renty</Link>
@@ -15,6 +16,4 @@ const Navbar = ({ auth }) => {
   )
 }
 
-const mapStateToProps = (state) => ({ auth: state.firebase.auth })
-
-export default connect(mapStateToProps)(Navbar)
+export default Navbar

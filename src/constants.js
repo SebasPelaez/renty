@@ -14,3 +14,5 @@ export const CAR_TYPES = [
   'Econom',
   'Van'
 ]
+
+export const BASE_API_URL = ['https://renty-web.herokuapp.com/cars', 'https://renty-ruby.herokuapp.com/cars/search']

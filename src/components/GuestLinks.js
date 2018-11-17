@@ -1,10 +1,10 @@
 import React from 'react'
-import SignIn from '../SignIn'
+import SignInContainer from '../containers/SignInContainer';
 
 const SignedOutLinks = (props) => {
   return (
     <div>
-      <SignIn />
+      <SignInContainer />
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { signOut } from '../../actions/auth'
+import { signOut } from '../actions/auth'
 
 const SignedInLinks = ({ dispatch }) => {
   return (
@@ -12,5 +12,4 @@ const SignedInLinks = ({ dispatch }) => {
     </div>
   )
 }
-
-export default connect()(SignedInLinks)
+ export default connect()(SignedInLinks)
