@@ -85,6 +85,8 @@
     "not op_mini all"
   ],
   "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>__tests__/setup/setupEnzyme.js",
+    "testPathIgnorePatterns": ["<rootDir>/__tests__/setup/", "<rootDir>/scripts/*"],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"
     ],
@@ -93,8 +95,8 @@
       "react-app-polyfill/jsdom"
     ],
     "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
-      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx}"
+      "<rootDir>/**/__tests__/**/*.{js,jsx}",
+      "<rootDir>/**/?(*.)(spec|test).{js,jsx}"
     ],
     "testEnvironment": "jsdom",
     "testURL": "http://localhost",
@@ -126,6 +128,9 @@
     ]
   },
   "devDependencies": {
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "enzyme-to-json": "^3.3.4",
     "node-sass": "^4.9.4"
   }
 }

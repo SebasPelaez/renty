@@ -8,3 +8,21 @@ $font-family-brand: 'Baloo', cursive;
 // imports
 @import "node_modules/bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Work+Sans|Baloo');
+
+// Styles
+
+.footer {
+  color: $white;
+  background-color: #12223D;
+  padding-top: 4rem;
+  padding-bottom: 2.5rem;
+  font-size: 0.9rem;
+
+  .developer {
+    line-height: 1.25;
+  }
+
+  .title {
+    font-size: 1.25em;
+  }
+}
