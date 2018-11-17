@@ -1,7 +1,10 @@
+import authReducer from './auth'
 import { combineReducers } from 'redux'
+import { firebaseReducer } from 'react-redux-firebase'
 
 const rootReducer = combineReducers({
-  hello: "Hello World!"
+  auth: authReducer,
+  firebase: firebaseReducer
 })
 
 export default rootReducer

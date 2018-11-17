@@ -1,13 +1,15 @@
 import React from 'react'
 import { render } from 'react-dom'
+import { createStore, applyMiddleware, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import { createLogger } from 'redux-logger'
-import { createStore, applyMiddleware } from 'redux'
-import rootReducer from './reducers/main'
+import { rootReducer } from './reducers/main'
 import Root from './components/Root'
 import './index.scss';
 import * as serviceWorker from './serviceWorker'
 import { addIconLibrary } from './iconLibrary'
+import firebaseConfig from './config/firebaseConfig'
+import { reactReduxFirebase } from 'react-redux-firebase';
 
 addIconLibrary()
 
@@ -15,9 +17,12 @@ const loggerMiddleware = createLogger()
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(
-    thunkMiddleware,
-    loggerMiddleware
+  compose(
+    applyMiddleware(
+      thunkMiddleware,
+      loggerMiddleware
+    ),
+    reactReduxFirebase(firebaseConfig)
   )
 )
 
