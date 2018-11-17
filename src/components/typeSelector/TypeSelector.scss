@@ -1,0 +1,36 @@
+@import '../../index.scss';
+
+.type-selector {
+  .dropdown-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-weight: bold;
+    
+    &:after {
+      display: none;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .dropdown-menu {
+    width: 100%;
+  }
+
+  .dropdown-toggle, .dropdown-item {
+    color: $gray-700;
+  }
+
+  .dropdown-item {
+    transition: background-color .2s ease-out;
+
+    &:hover, &:focus {
+      background-color: #12223D;
+      color: $white;
+    }
+  }
+}

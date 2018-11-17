@@ -1,0 +1,16 @@
+@import '../../index.scss';
+
+.navbar {
+  background-color: #12223D;
+}
+.navbar-brand {
+  font-family: $font-family-brand;
+  font-size: 1.75rem !important;
+  color: $white;
+  padding: 0 !important;
+  transition: color .3s ease-out;
+
+  &:hover {
+    color: #2DC4BB
+  }
+}

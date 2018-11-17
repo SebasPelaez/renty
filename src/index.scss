@@ -1,0 +1,38 @@
+// This files is used to add general styles
+// and override original bootstrap's rules
+
+// Variables
+$font-family-sans-serif: 'Work Sans', sans-serif;
+$font-family-brand: 'Baloo', cursive;
+
+// Styles
+* {
+  margin: 0;
+  padding: 0;
+}
+
+// imports
+@import "node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Work+Sans|Baloo');
+
+// Styles
+
+.footer {
+  color: $white;
+  background-color: #12223D;
+  padding-top: 4rem;
+  padding-bottom: 2.5rem;
+  font-size: 0.9rem;
+
+  .developer {
+    line-height: 1.25;
+  }
+
+  .title {
+    font-size: 1.25em;
+  }
+}
+
+.has-brand-font {
+  font-family: $font-family-brand;
+}
