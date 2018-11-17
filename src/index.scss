@@ -3,10 +3,11 @@
 
 // Variables
 $font-family-sans-serif: 'Work Sans', sans-serif;
+$font-family-brand: 'Baloo', cursive;
 
 // imports
 @import "node_modules/bootstrap/scss/bootstrap";
-@import url('https://fonts.googleapis.com/css?family=Work+Sans');
+@import url('https://fonts.googleapis.com/css?family=Work+Sans|Baloo');
 
 // Styles
 

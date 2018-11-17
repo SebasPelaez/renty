@@ -1,0 +1,54 @@
+@import '../index.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+.auth-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+
+  .btn-social {
+    padding: .5rem 1rem;
+    border-radius: 50px;
+    border: 1px solid $gray-500;
+    background-color: $white;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    transition: background-color .3s ease-out;
+    color: $gray-700;
+
+    &:nth-child(odd) {
+      margin-bottom: .5rem;
+    }
+
+    &:nth-child(even) {
+      margin: 0;
+    }
+
+    &:hover {
+      background-color: #12223D;
+      color: $white;
+    }
+
+    img {
+      max-width: 1.5rem;
+      max-height: 1.5rem;
+      margin-right: 1rem;
+    }
+  }
+}
+
+.popup-wrapper {
+  padding: calc(2em - 5px);
+  color: $gray-700;
+}
+
+.popup-content {
+  border-radius: 5px;
+  width: 350px !important;
+  max-width: 100% !important;
+}
