@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { fetchCars } from '../../actions/car'
 import 'react-dates/initialize';
 import TypeSelector from '../typeSelector/TypeSelector'
@@ -62,28 +63,33 @@ class Searchbox extends Component {
 
   render() {
     return(
-      <div className="searchbox col-sm-4 shadow-sm">
-        <h4>Search rental cars</h4>
+      <div className="col-sm-auto">
+        <div className="searchbox shadow-sm">
+          <h4>Search rental cars</h4>
 
-        <h6 className="mt-4">Time</h6>
-        <Datepicker
-          onDatesChange={this.onDatesChange}
-          onFocusChange={this.onFocusChange}
-          focusedInput={this.state.focusedInput}
-          startDate={this.state.startDate}
-          endDate={this.state.endDate} />
+          <h6 className="mt-4">Pickup</h6>
+          <input className="pickup" type="text" placeholder="Add address, or place ..." />
 
-        <h6 className="mt-4">Type of Vehicle</h6>
-        <form id="searchbox-form" onSubmit={this.searchRentalCars}>
-          <TypeSelector defaultValue={this.state.type} updateCarType={this.updateCarType} />
-          <button className="btn btn-success mt-4" type="submit" form="searchbox-form">
-            Search
-          </button>
-        </form>
+          <h6 className="mt-4">Time</h6>
+          <Datepicker
+            onDatesChange={this.onDatesChange}
+            onFocusChange={this.onFocusChange}
+            focusedInput={this.state.focusedInput}
+            startDate={this.state.startDate}
+            endDate={this.state.endDate} />
+
+          <h6 className="mt-4">Type of Vehicle</h6>
+          <form id="searchbox-form" onSubmit={this.searchRentalCars}>
+            <TypeSelector defaultValue={this.state.type} updateCarType={this.updateCarType} />
+            <button className="btn btn-success mt-4" type="submit" form="searchbox-form">
+              Search
+            </button>
+          </form>
+        </div>
       </div>
     )
   }
 }
 
 
-export default Searchbox
+export default connect()(Searchbox)

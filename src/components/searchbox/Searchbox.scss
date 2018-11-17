@@ -10,5 +10,13 @@
     button[type="submit"] {
       cursor: pointer;
     }
-  } 
+  }
+
+  .pickup {
+    border: none;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    width: 100%;
+    border: 1px solid $gray-300;
+  }
 }

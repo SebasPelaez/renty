@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { BASE_URL } from '../costants'
+import { BASE_API_URL } from '../constants'
 
 export const REQUEST_CARS = 'REQUEST_CARS'
 export const RECEIVE_CARS = 'RECEIVE_CARS'
@@ -33,10 +33,12 @@ export function fetchCars(search) {
     
     let searchParams = `from=${search.from}&to=${search.to}&type=${search.type}&pickup=${search.pickup}`
 
-    return axios.get('http://www.mocky.io/v2/5bea29402e0000f947f147ee')
+    BASE_API_URL.forEach((url) => {
+      axios.get(`${url}/cars/search/${searchParams}`)
       .then(
         res => dispatch(receiveCars(res.data)),
         error => console.log('An error ocurred.', error)
       )
+    })
   }
 }
