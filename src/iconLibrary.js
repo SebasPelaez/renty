@@ -3,7 +3,8 @@ import {
   faGhost,
   faPhone, 
   faPaperPlane,
-  faMapMarkerAlt
+  faMapMarkerAlt,
+  faAngleDown
 } from '@fortawesome/free-solid-svg-icons'
 
 export const addIconLibrary = () => {
@@ -11,6 +12,7 @@ export const addIconLibrary = () => {
     faGhost,
     faPhone,
     faPaperPlane,
-    faMapMarkerAlt
+    faMapMarkerAlt,
+    faAngleDown
   )
 }

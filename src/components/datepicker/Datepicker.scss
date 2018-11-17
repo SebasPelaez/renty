@@ -1,0 +1,52 @@
+.DateRangePickerInput {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .5rem 1rem;
+  
+  .DateInput_input {
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .DateRangePickerInput_calendarIcon {
+    padding: 0;
+    margin: 0;
+  }
+
+  .DateRangePickerInput_arrow_svg, .DateRangePickerInput_calendarIcon_svg {
+    width: 1.25rem;
+  }
+
+  .DateRangePickerInput_arrow_svg {
+    margin: 0 1rem;
+  }
+
+  .DateRangePickerInput_calendarIcon {
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .DateInput {
+    width: unset;
+    
+    input {
+      border: none;
+    }
+  }
+
+  #startDate, #endDate {
+    width: 5.5rem;
+  }
+
+  .DateInput_fang {
+    top: 46px !important;
+  }
+}
+
+.DateRangePicker {
+  width: 100%;
+}

@@ -5,6 +5,7 @@ import momentPropTypes from 'react-moment-proptypes';
 import moment from 'moment';
 import omit from 'lodash/omit';
 import 'react-dates/lib/css/_datepicker.css';
+import './Datepicker.scss'
 
 const propTypes = {
   autoFocus: PropTypes.bool,
@@ -21,9 +22,9 @@ const defaultProps = {
   endDate: null,
 
   startDateId: 'startDate',
-  startDatePlaceholderText: 'Fecha inicial',
+  startDatePlaceholderText: 'Start Date',
   endDateId: 'endDate',
-  endDatePlaceholderText: 'Fecha final',    
+  endDatePlaceholderText: 'End Date',    
   required: true,    
   showDefaultInputIcon: true,    
 
@@ -35,7 +36,7 @@ const defaultProps = {
   stateDateWrapper: date => date,
 }
 
-const datepickerWrapper = (props) => {
+const Datepicker = (props) => {
   const omitedProps = omit(props, [
     'autoFocus',
     'autoFocusEndDate',
@@ -55,7 +56,7 @@ const datepickerWrapper = (props) => {
   )
 }
 
-datepickerWrapper.propTypes = propTypes;
-datepickerWrapper.defaultProps = defaultProps;
+Datepicker.propTypes = propTypes;
+Datepicker.defaultProps = defaultProps;
 
-export default datepickerWrapper;
+export default Datepicker;
