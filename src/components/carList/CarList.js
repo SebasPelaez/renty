@@ -13,13 +13,9 @@ const CarList = ({ cars, isFetching }) => {
     )
   } else {
     return(
-      <div className="card-list col-sm-8">
-        <div className="container-flex">
-          {cars.map(car => 
-            <Car key={car.id} {...car}/>
-          )}
-        </div>
-      </div>  
+      <React.Fragment>
+        { cars.map(car => <Car key={car.id} {...car} /> ) }
+      </React.Fragment>
     )
   }
 }

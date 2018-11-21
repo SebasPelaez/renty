@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { fetchCars } from '../../actions/car'
 import 'react-dates/initialize';
 import TypeSelector from '../typeSelector/TypeSelector'
@@ -63,14 +64,16 @@ class Searchbox extends Component {
 
   render() {
     return(
-      <div className="col-sm-auto">
-        <div className="searchbox shadow-sm">
-          <h4>Search rental cars</h4>
+      <div className="searchbox shadow-sm">
+        <h5 className="m-0">Search rental cars</h5>
+        
+        <form id="searchbox-form" onSubmit={this.searchRentalCars}>
+          <Icon icon="map-marker-alt" className="pickup-icon" fixedWidth />
+          <h6 className="pickup-label mt3">Pickup</h6>
+          <input className="pickup-input" type="text" placeholder="Add address, or place ..." />
 
-          <h6 className="mt-4">Pickup</h6>
-          <input className="pickup" type="text" placeholder="Add address, or place ..." />
-
-          <h6 className="mt-4">Time</h6>
+          <Icon icon="calendar-alt" className="time-icon" fixedWidth />
+          <h6 className="time-label mt-3">Time</h6>
           <Datepicker
             onDatesChange={this.onDatesChange}
             onFocusChange={this.onFocusChange}
@@ -78,14 +81,14 @@ class Searchbox extends Component {
             startDate={this.state.startDate}
             endDate={this.state.endDate} />
 
-          <h6 className="mt-4">Type of Vehicle</h6>
-          <form id="searchbox-form" onSubmit={this.searchRentalCars}>
-            <TypeSelector defaultValue={this.state.type} updateCarType={this.updateCarType} />
-            <button className="btn btn-success mt-4" type="submit" form="searchbox-form">
-              Search
-            </button>
-          </form>
-        </div>
+          <Icon icon="car" className="type-icon" fixedWidth />
+          <h6 className="type-label mt-3">Type of vehicle</h6>
+          <TypeSelector defaultValue={this.state.type} updateCarType={this.updateCarType} />
+          <button className="btn btn-success" type="submit" form="searchbox-form">
+            <Icon icon="search" className="search-icon" />
+            <span className="search-label">Search</span>
+          </button>
+        </form>
       </div>
     )
   }

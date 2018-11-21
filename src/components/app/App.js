@@ -2,7 +2,6 @@ import React from 'react'
 import Searchbox from '../searchbox/Searchbox'
 import NavbarContainer from '../../containers/NavbarContainer'
 import Footer from '../footer/Footer'
-import CarListContainer from '../../containers/CarListContainer'
 import './App.scss'
 
 const App = () => {
@@ -11,9 +10,8 @@ const App = () => {
       <NavbarContainer />
       <div className="app-wrapper">
         <div className="container">
-          <div className="row">
+          <div className="row justify-content-center">
             <Searchbox />
-            <CarListContainer />
           </div>
         </div>
       </div>

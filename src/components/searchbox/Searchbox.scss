@@ -2,21 +2,72 @@
 
 .searchbox {
   border-radius: 10px;
-  padding: 2em 1em;
+  padding: 2em 1.5em;
   background-color: $white;
-  margin-top: 2em;
+  color: $gray-700;
+  margin-top: 1rem;
+  min-width: 320px;
 
   #searchbox-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+    margin-top: 1rem;
+
+    > * {
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+
     button[type="submit"] {
       cursor: pointer;
     }
   }
 
-  .pickup {
+  .pickup-input {
     border: none;
     border-radius: 5px;
-    padding: .5rem 1rem;
-    width: 100%;
+    padding: .25rem .5rem;
     border: 1px solid $gray-300;
+  }
+
+  .pickup-icon, .time-icon, .type-icon, .search-icon { 
+    display: block
+  }
+
+  .pickup-label, .time-label, .type-label, .search-label {
+    display: none
+  }
+
+  // Media Queries
+  @include media-breakpoint-down(xs) {
+    #searchbox-form {
+      flex-flow: column wrap;
+      align-items: flex-start;
+
+      button[type="submit"] {
+        margin-top: 1.5rem;
+      }
+
+      > * {
+        &:not(:last-child) {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .pickup-icon, .time-icon, .type-icon, .search-icon { 
+      display: none
+    }
+
+    .pickup-label, .time-label, .type-label, .search-label {
+      display: block
+    }
+
+    .pickup-input, .type-selector, .type-selector .dropdown-toggle  {
+      width: 100%;
+    }
   }
 }

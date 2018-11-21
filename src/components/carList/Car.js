@@ -1,5 +1,6 @@
 import React from 'react'
 import Popup from 'reactjs-popup'
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import './Car.scss'
 import Currency from 'react-currency-formatter'
 import Details from './Details'
@@ -19,21 +20,25 @@ const Car = props => {
       </figure>
       
       <div className="content">
-        <p className="m-0 title">
-          {props.brand} {props.model}
-        </p>
+        <div className="title">
+          {props.brand} <span>&bull;</span> {props.model}
+        </div>
 
-        <span className="price">
-          {props.price}
-        </span>
-
-        <p>
-          {props.rental.name}
-        </p>
-
-        <p>
+        <div>
+          <Icon icon="car" className="mr-2" fixedWidth />
           {props.type}
-        </p>
+        </div>
+
+        <div>
+          <Icon icon="suitcase" className="mr-2" fixedWidth />
+          {props.rental.name}
+        </div>
+
+        
+        <div className="price">
+          <span className="rate-currency mr-2">COP$</span>
+          <span className="rate-amount">{props.price}</span>
+        </div>
 
         <Popup trigger={popupTrigger} position="right center" modal>
           <Details car={props} />

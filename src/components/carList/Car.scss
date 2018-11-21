@@ -2,19 +2,16 @@
 
 .container-flex{
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center; 
-  justify-content: center;
+  flex-flow: row wrap;
+  align-items: flex-start; 
+  justify-content: flex-start;
 }
 
 .card-list {
   margin-top: 1rem;
-  max-height: 337px;
 }
 
 .card-item {
-  margin: 10px;
   max-width: 300px;
 }
 
@@ -26,18 +23,19 @@
   margin: 1rem;
 
   .view-details {
-    background-color: #4579A3;
-    color: $white;
+    border: 2px solid $blue-dark;
+    color: $blue-dark;
     font-size: .75em;
     font-weight: 700;
-    border-radius: 50px;
-    border: none;
+    border-radius: 5px;
     padding: .25rem 1.5rem;
-    transition: transform .3s ease-out;
+    background-color: $white;
+    transition: background-color .25s ease-out;
     cursor: pointer;
   
     &:hover {
-      transform: translate(0, -3px);
+      background-color: $blue-dark;
+      color: $white;
     }
   }
 
@@ -56,7 +54,18 @@
   }
 
   .price {
-    font-size: .85em;
+    display: flex;
+    align-items: flex-end;
+
+    .rate-amount {
+      font-size: 1.5em;
+      color: $gray-700;
+      line-height: 100%
+    }
+
+    .rate-currency {
+      line-height: 1.2rem;
+    }
   }
 
   p {

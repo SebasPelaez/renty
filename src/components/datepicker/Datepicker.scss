@@ -1,56 +1,107 @@
 @import '../../index.scss';
 
+// .DateRangePickerInput {
+//   display: flex;
+//   align-items: center;
+//   justify-content: flex-start;
+//   padding: .25rem .5rem;
+//   border-radius: 5px;
+//   border-color: $gray-300;
+  
+//   .DateInput_input {
+//     font-size: 1rem;
+//     padding: 0;
+//     margin: 0;
+//   }
+
+//   .DateRangePickerInput_calendarIcon {
+//     padding: 0;
+//     margin: 0;
+//   }
+
+//   .DateRangePickerInput_arrow_svg, .DateRangePickerInput_calendarIcon_svg {
+//     width: 1.25rem;
+//   }
+
+//   .DateRangePickerInput_calendarIcon {
+//     margin-right: .5rem;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//   }
+
+//   .DateInput {
+//     width: unset;
+    
+//     input {
+//       border: none;
+//     }
+//   }
+
+//   #startDate, #endDate {
+//     width: 5.5rem;
+//   }
+
+//   .DateInput_fang {
+//     top: 46px !important;
+//   }
+
+//   .DateRangePickerInput_arrow {
+//     margin-right: .5rem;
+//   }
+
+//   .DateRangePickerInput_clearDates {
+//     display: flex;
+//     margin: 0 0 0 1rem;
+//     padding: 0 1rem 0 0;
+
+//     &:hover {
+//       background-color: transparent;
+//     }
+//   }
+// }
+
+// .DateRangePicker {
+//   width: 100%;
+// }
 .DateRangePickerInput {
+  padding: $input-spacing;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: .5rem 1rem;
+  justify-content: space-evenly;
   border-radius: 5px;
-  border-color: $gray-300;
-  
-  .DateInput_input {
-    font-size: 1rem;
-    padding: 0;
-    margin: 0;
-  }
 
   .DateRangePickerInput_calendarIcon {
-    padding: 0;
-    margin: 0;
-  }
-
-  .DateRangePickerInput_arrow_svg, .DateRangePickerInput_calendarIcon_svg {
-    width: 1.25rem;
-  }
-
-  .DateRangePickerInput_arrow_svg {
-    margin: 0 1rem;
-  }
-
-  .DateRangePickerInput_calendarIcon {
-    margin-right: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: none;
   }
 
   .DateInput {
-    width: unset;
-    
-    input {
-      border: none;
-    }
+    max-width: 5rem;
   }
 
-  #startDate, #endDate {
-    width: 5.5rem;
+  .DateRangePickerInput_clearDates:hover { background-color: transparent }
+  * { 
+    font-size: inherit;
+    padding: 0;
+    margin: 0;
   }
 
-  .DateInput_fang {
-    top: 46px !important;
+  .DateRangePickerInput_clearDates {
+    margin-left: .5rem;
+    position: relative;
+    top: 6px;
+  }
+
+  .DateRangePickerInput_arrow {
+    margin: 0 .5rem;
+    position: relative;
+    bottom: 2px;
   }
 }
 
-.DateRangePicker {
-  width: 100%;
+// Media Queries
+@include media-breakpoint-down(xs) {
+  .DateRangePicker, .DateRangePickerInput {
+    width: 100%;
+  } 
 }
