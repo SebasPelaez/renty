@@ -85,7 +85,7 @@ class Searchbox extends Component {
                 endDate={this.state.endDate} />
             </div>
 
-            <div className="col-sm-auto">
+            <div className="col-sm-auto type-column">
               <h6>Type of Vehicle</h6>
               <TypeSelector defaultValue={this.state.type} updateCarType={this.updateCarType} />
             </div>

@@ -35,3 +35,5 @@ export function fetchCars(search) {
     })
   }
 }
+
+export { receiveCars }

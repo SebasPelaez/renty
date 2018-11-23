@@ -2,6 +2,7 @@ import React from 'react'
 import Popup from 'reactjs-popup'
 import './Car.scss'
 import Details from './Details'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Car = props => {
 
@@ -12,27 +13,30 @@ const Car = props => {
     </div>
 
   return(
-    <div className="rental-car card-item">
+    <div className="rental-car card-item shadow-sm">
       <figure>
         <img src={props.thumbnail} alt={`Car #${props.id}`}/>
       </figure>
-      
+
       <div className="content">
-        <p className="m-0 title">
+        <p className="title mb-2 truncated">
           {props.brand} {props.model}
         </p>
 
-        <span className="price">
-          {props.price}
-        </span>
-
-        <p>
-          {props.rental.name}
-        </p>
-
-        <p>
+        <div>
+          <FontAwesomeIcon icon='car' className="mr-2" fixedWidth />
           {props.type}
-        </p>
+        </div>
+
+        <div>
+          <FontAwesomeIcon icon='suitcase' className="mr-2" fixedWidth />
+          {props.rental.name}
+        </div>
+
+        <div className="font-weight-bold my-4 price">
+          <span className="mr-1 currency">COP$</span>
+          <span className="amount">{props.price}</span>
+        </div>
 
         <Popup trigger={popupTrigger} position="right center" modal>
           <Details car={props} />

@@ -11,10 +11,10 @@ const App = () => {
       <NavbarContainer />
       <div className="app-wrapper">
         <div className="container">
-          <div className="row justify-content-center">
+          <div className="row justify-content-center py-5">
             <Searchbox />
           </div>
-          <div className="row">
+          <div className="row pb-5">
             <CarListContainer />
           </div>
         </div>
