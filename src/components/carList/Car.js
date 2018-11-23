@@ -11,6 +11,9 @@ const Car = props => {
         VIEW DETAILS
       </button>
     </div>
+  const settingsModal = {
+    width: "80% !important"
+  }
 
   return(
     <div className="rental-car card-item">
@@ -35,7 +38,7 @@ const Car = props => {
           {props.type}
         </p>
 
-        <Popup trigger={popupTrigger} position="right center" modal>
+        <Popup trigger={popupTrigger} position="right center" modal contentStyle={settingsModal}>
           <Details car={props} />
         </Popup>
 

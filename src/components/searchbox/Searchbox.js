@@ -24,7 +24,7 @@ class Searchbox extends Component {
       pickup: '',
       startDate: props.initialStartDate,
       endDate: props.initialEndDate,
-      type: 'Sedan',
+      type: {id:"economico",description:"Económico"},
       focusedInput
     }
 
@@ -37,7 +37,7 @@ class Searchbox extends Component {
   onDatesChange({ startDate, endDate }) {    
     this.setState({
       startDate: startDate && this.stateDateWrapper(startDate),
-      endDate: endDate && this.stateDateWrapper(endDate),
+      endDate: endDate && this.stateDateWrapper(endDate)
     });
   }
 
@@ -80,7 +80,7 @@ class Searchbox extends Component {
 
           <h6 className="mt-4">Type of Vehicle</h6>
           <form id="searchbox-form" onSubmit={this.searchRentalCars}>
-            <TypeSelector defaultValue={this.state.type} updateCarType={this.updateCarType} />
+            <TypeSelector defaultValue={this.state.type.description} updateCarType={this.updateCarType} />
             <button className="btn btn-success mt-4" type="submit" form="searchbox-form">
               Search
             </button>

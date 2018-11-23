@@ -1,0 +1,19 @@
+@import "~slick-carousel/slick/slick.css"; 
+@import "~slick-carousel/slick/slick-theme.css";
+
+.container-flex{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center; 
+  justify-content: center;
+}
+
+.item-flex{
+  flex-basis: 50%;
+}
+
+.image-slide{
+  max-width: 300px !important;
+  max-width: 250px !important;
+}

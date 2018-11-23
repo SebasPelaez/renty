@@ -31,10 +31,13 @@ export function fetchCars(search) {
   return dispatch => {
     dispatch(requestCars(search))
     
-    let searchParams = `from=${search.from}&to=${search.to}&type=${search.type}&pickup=${search.pickup}`
+    //let searchParams = `from=${search.from}&to=${search.to}&type=${search.type.id}&pickup=${search.pickup}`
+
+    let searchParams = `from=2018-11-15&to=2018-11-17&type=sport&pickup=aeropuerto`
+
 
     BASE_API_URL.forEach((url) => {
-      axios.get(`${url}/cars/search/${searchParams}`)
+      axios.get(`${url}/search?${searchParams}`)
       .then(
         res => dispatch(receiveCars(res.data)),
         error => console.log('An error ocurred.', error)
