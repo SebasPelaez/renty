@@ -1,12 +1,12 @@
-@import '../../index.scss';
+@import '../../utilities.scss';
 
 .DateRangePickerInput {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: .5rem 1rem;
+  padding: $field-spacing;
   border-radius: 5px;
-  border-color: $gray-300;
+  border: $default-border;
   
   .DateInput_input {
     font-size: 1rem;
@@ -23,12 +23,12 @@
     width: 1.25rem;
   }
 
-  .DateRangePickerInput_arrow_svg {
-    margin: 0 1rem;
+  .DateRangePickerInput_arrow {
+    margin: 0 .5rem;
   }
 
   .DateRangePickerInput_calendarIcon {
-    margin-right: 1rem;
+    margin-right: .5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -48,6 +48,17 @@
 
   .DateInput_fang {
     top: 46px !important;
+  }
+
+  .DateRangePickerInput_clearDates {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 8px;
+
+    &:hover {
+      background-color: transparent;
+    }
   }
 }
 

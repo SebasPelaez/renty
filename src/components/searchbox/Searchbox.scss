@@ -1,22 +1,33 @@
-@import '../../index.scss';
+@import '../../utilities.scss';
 
 .searchbox {
   border-radius: 10px;
-  padding: 2em 1em;
+  padding: 1.5em 1em;
   background-color: $white;
-  margin-top: 2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 
   #searchbox-form {
     button[type="submit"] {
       cursor: pointer;
     }
+
+    .row > * { margin-top: 1.5rem }
   }
 
-  .pickup {
-    border: none;
+  .pickup input {
+    padding: $field-spacing;
     border-radius: 5px;
-    padding: .5rem 1rem;
-    width: 100%;
-    border: 1px solid $gray-300;
+    border: $default-border;
+  }
+
+  // Media Queries
+
+  @include media-breakpoint-down(sm) {
+    margin-left: 1em;
+    margin-right: 1em;
+
+    .pickup, .pickup-column { width: 100% }
+    .DateRangePickerInput { justify-content: space-evenly }
   }
 }

@@ -11,8 +11,10 @@ const App = () => {
       <NavbarContainer />
       <div className="app-wrapper">
         <div className="container">
-          <div className="row">
+          <div className="row justify-content-center">
             <Searchbox />
+          </div>
+          <div className="row">
             <CarListContainer />
           </div>
         </div>

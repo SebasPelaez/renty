@@ -1,4 +1,4 @@
-@import '../../index.scss';
+@import '../../utilities.scss';
 
 .type-selector {
   .dropdown-toggle {
@@ -6,7 +6,9 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    font-weight: bold;
+    padding: $field-spacing;
+    background-color: $white;
+    border: $default-border;
     
     &:after {
       display: none;

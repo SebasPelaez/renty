@@ -1,7 +1,6 @@
 import React from 'react'
 import Popup from 'reactjs-popup'
 import './Car.scss'
-import Currency from 'react-currency-formatter'
 import Details from './Details'
 
 const Car = props => {
