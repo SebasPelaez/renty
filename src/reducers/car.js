@@ -1,12 +1,19 @@
 import {
   REQUEST_CARS,
   RECEIVE_CARS,
-  SEARCH_CARS
+  SEARCH_CARS,
+  REQUEST_CAR_DETAIL,
+  RECEIVE_CAR_DETAIL
 } from '../actions/car'
 
 let initialCarsState = {
   isFetching: false,
   items: []
+}
+
+let initialCarState = {
+  isFetching: false,
+  details: []
 }
 
 function carSearch(state = {}, action) {
@@ -33,4 +40,19 @@ function cars(state = initialCarsState, action) {
   }
 }
 
-export { cars, carSearch } 
+function car(state = initialCarState, action) {
+  switch(action.type) {
+    case REQUEST_CAR_DETAIL:
+      return Object.assign({}, state, {isFetching: true})
+    case RECEIVE_CAR_DETAIL:
+      return Object.assign({}, state, {
+        isFetching: false,
+        details: state.details.concat(action.car),
+        lastUpdated: action.receivedAt
+      })
+      default:
+        return state
+  }
+}
+
+export { cars, car, carSearch } 

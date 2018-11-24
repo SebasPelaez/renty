@@ -4,6 +4,8 @@ import { BASE_API_URL } from '../constants'
 export const REQUEST_CARS = 'REQUEST_CARS'
 export const RECEIVE_CARS = 'RECEIVE_CARS'
 export const SEARCH_CARS = 'SEARCH_CARS'
+export const REQUEST_CAR_DETAIL = 'REQUEST_CAR_DETAIL'
+export const RECEIVE_CAR_DETAIL = 'RECEIVE_CAR_DETAIL'
 
 function requestCars(search) {
   return {
@@ -25,6 +27,26 @@ function searchCars(search) {
     type: SEARCH_CARS,
     search
   }
+}
+
+function receiveCarDetail(data) {
+  return {
+    type: RECEIVE_CAR_DETAIL,
+    car: data,
+    receiveAt: Date.now()
+  }
+}
+
+export function fetchCarDetail(id) {
+  return dispatch => {
+    BASE_API_URL.forEach((url) => {
+      axios.get(`${url}/cars/${id}`)
+        .then(
+          res => dispatch(receiveCarDetail(res.data)),
+          error => console.log('An error ocurred.', error)
+        )
+    })
+  }  
 }
 
 export function fetchCars(search) {

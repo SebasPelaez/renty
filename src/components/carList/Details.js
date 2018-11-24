@@ -1,7 +1,8 @@
 import React from 'react'
 import Slider from "react-slick";
+import { fetchCarDetail } from '../../actions/car'
 import "./Details.scss"
-const Details = ({ car }) => {
+const Details = (props, { car, isFetching }) => {  
   car = {
     "id": 1,
     "brand": "Bugatti",
@@ -32,17 +33,22 @@ const Details = ({ car }) => {
       slidesToShow: 1,
       slidesToScroll: 1
     };
-  return(
-    <div>
-        <Slider {...settingsSlider}>
-        {car.pictures.map((picture,index) =>
-          <div key={index}>
-            <img src={picture} className="image-slide" />
-          </div>
-        )}
-        </Slider>
-      </div>
-  )
+
+    if(isFetching) {
+    return <span> cargando...</span>
+  } else {
+      return(
+        <div>
+          <Slider {...settingsSlider}>
+          {car.pictures.map((picture,index) =>
+            <div key={index}>
+              <img src={picture} className="image-slide" />
+            </div>
+          )}
+          </Slider>
+        </div>
+      ) 
+  }
 }
 
 export default Details
