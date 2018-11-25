@@ -30,12 +30,7 @@ function searchCars(search) {
 export function fetchCars(search) {
   return dispatch => {
     dispatch(requestCars(search))
-    
-    //let searchParams = `from=${search.from}&to=${search.to}&type=${search.type.id}&pickup=${search.pickup}`
-
-    let searchParams = `from=2018-11-15&to=2018-11-17&type=economico&pickup=aeropuerto`
-
-
+    let searchParams = `from=${search.from}&to=${search.to}&type=${search.type.id}&pickup=${search.pickup}`
     BASE_API_URL.forEach((url) => {
       axios.get(`${url}/search?${searchParams}`)
       .then(
