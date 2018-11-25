@@ -11,7 +11,7 @@ const Car = props => {
     </div>
   const settingsModal = {
     width: "700px",
-    height: "500px"
+    height: "380px"
   }
 
   return(

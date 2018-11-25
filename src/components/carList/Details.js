@@ -96,8 +96,10 @@ const Details = ({ car }) => {
             <li><FontAwesomeIcon icon="star" className="mr-2"/><span><strong>Rating:</strong> {car.rating}</span></li>
           </ul>
         </div>
-        <div>
-          <button>Rental!</button>
+      </div>
+      <div className="container-flex-column">
+        <div className="item-flex-button">
+          <button className="rental-button">Rental</button>
         </div>
       </div>
     </div>
