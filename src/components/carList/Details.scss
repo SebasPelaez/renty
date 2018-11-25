@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: center; 
+  align-items: space-around; 
   justify-content: center;
 }
 
@@ -14,6 +14,22 @@
 }
 
 .image-slide{
-  max-width: 300px !important;
-  max-width: 250px !important;
+  max-width: 100% !important;
+  max-height: 240px !important;
+}
+
+.item-flex li {
+  list-style: none;
+}
+
+.group-info > span{
+  display: block;
+}
+
+.margin-slider{
+  margin-bottom: 30px;
+}
+
+.icon-caracteristics{
+  
 }
