@@ -1,19 +1,61 @@
-@import "~slick-carousel/slick/slick.css"; 
+@import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 
-.container-flex{
+.container-flex {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: center; 
+  align-items: stretch;
   justify-content: center;
 }
 
-.item-flex{
+.item-flex {
   flex-basis: 50%;
 }
 
-.image-slide{
-  max-width: 300px !important;
-  max-width: 250px !important;
+.image-slide {
+  max-width: 100% !important;
+  max-height: 240px !important;
+}
+
+.item-flex li {
+  list-style: none;
+}
+
+.group-info>span {
+  display: block;
+}
+
+.margin-slider {
+  margin-bottom: 30px;
+}
+
+.item-flex-button {
+  flex-basis: 100%;
+  align-self: flex-end;
+}
+
+.container-flex-column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  height: 150px;
+  justify-content: center;
+}
+
+.rental-button {
+  background-color: #4579A3;
+  color: white;
+  font-size: .75em;
+  font-weight: 700;
+  border-radius: 50px;
+  border: none;
+  padding: .25rem 1.5rem;
+  transition: transform .3s ease-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: translate(0, -3px);
+  }
 }
