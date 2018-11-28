@@ -1,7 +1,8 @@
 import React from 'react'
 import Popup from 'reactjs-popup'
 import './Car.scss'
-import Details from './Details.js'
+import Currency from 'react-currency-formatter'
+import Details from './Details'
 
 const Car = props => {
 
@@ -11,8 +12,7 @@ const Car = props => {
       </button>
     </div>
   const settingsModal = {
-    width: "700px",
-    height: "380px"
+    width: "80% !important"
   }
 
   return(

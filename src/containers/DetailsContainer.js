@@ -3,7 +3,7 @@ import Details from '../components/carList/Details'
 
 const mapStateToProps = state => {
   return  {
-    car: state.car.details,
+    car: state.carDetails.details,
   }
 }
 

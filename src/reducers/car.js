@@ -40,19 +40,25 @@ function cars(state = initialCarsState, action) {
   }
 }
 
-function car(state = initialCarState, action) {
+function carDetails(state = {}, action) {
   switch(action.type) {
     case REQUEST_CAR_DETAIL:
-      return Object.assign({}, state, {isFetching: true})
-    case RECEIVE_CAR_DETAIL:
       return Object.assign({}, state, {
-        isFetching: false,
-        details: state.details.concat(action.car),
-        lastUpdated: action.receivedAt
+        [action.id]: {
+          isFetching: true
+        }
+      })
+    case RECEIVE_CAR_DETAIL:
+      return Object.assign({}, state, {        
+        [action.id]: {
+          details: action.details,
+          isFetching: false,
+          lastUpdated: action.receivedAt,
+        },        
       })
       default:
         return state
   }
 }
 
-export { cars, car, carSearch } 
+export { cars, carDetails, carSearch } 

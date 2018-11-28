@@ -29,23 +29,41 @@ function searchCars(search) {
   }
 }
 
-function receiveCarDetail(data) {
+function requestCarDetail(id, provider) {
+  return {
+    type: REQUEST_CAR_DETAIL,
+    id, provider
+  }
+}
+
+function receiveCarDetail(id, json) {
   return {
     type: RECEIVE_CAR_DETAIL,
-    car: data,
+    id,
+    details: json.data,
     receiveAt: Date.now()
   }
 }
 
-export function fetchCarDetail(id) {
-  return dispatch => {
-    BASE_API_URL.forEach((url) => {
-      axios.get(`${url}/cars/${id}`)
+export function fetchCarDetail(id, provider) {  
+  let url;
+  if (carDetails.id != null || carDetails.id.isFetching == true) {  //¿cómo accedo al state desde acá?    
+    return dispatch => {
+      dispatch(requestCarDetail(id, provider))
+      if(provider === 'Ruby') {
+        url = BASE_API_URL[1];
+      } else {
+        url = BASE_API_URL[0];
+      }
+      console.log(url);
+      return axios.get(`${url}/cars/${id}`)
         .then(
-          res => dispatch(receiveCarDetail(res.data)),
-          error => console.log('An error ocurred.', error)
-        )
-    })
+          res => {
+            console.log(res.data)
+            res.json()})
+            .then(json => dispatch(receiveCarDetail(id, json))),
+          error => console.log('An error ocurred.', error)      
+    }
   }  
 }
 
