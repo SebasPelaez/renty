@@ -5,7 +5,8 @@ import { fetchCarDetail } from '../../actions/car'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import "./Details.scss"
 
-const Details = (props, { car }) => {
+const Details = (props) => {
+  console.log('Props en details component:', props);
   const settingsSlider = {
     dots: true,
     infinite: false,
@@ -79,12 +80,12 @@ const Details = (props, { car }) => {
         <div>
           <div className="margin-slider">
             <div className="clearfix">
-              <h5 className="float-left"><strong>{car.brand + ' ' + car.model} <span>{car.type}</span></strong></h5>
-              <h5 className="float-right"><strong>${car.price}</strong>/ per day</h5>
+              <h5 className="float-left"><strong>{props.carDetails.brand + ' ' + props.carDetails.model} <span>{props.carDetails.type}</span></strong></h5>
+              <h5 className="float-right"><strong>${props.carDetails.price}</strong>/ per day</h5>
             </div>
             
             <Slider {...settingsSlider}>
-            {car.pictures.map((picture,index) =>
+            {props.carDetails.pictures.map((picture, index) =>
               <div key={index}>
                 <img src={picture} className="image-slide" />
               </div>
@@ -94,18 +95,18 @@ const Details = (props, { car }) => {
           <div className="container-flex">
             <div className="item-flex">
               <ul>
-                <li><FontAwesomeIcon icon='barcode' className="mr-2"/><span><strong>Plate:</strong> {car.plate}</span></li>
-                <li><FontAwesomeIcon icon='users' className="mr-2"/><span><strong>Capacity:</strong> {car.capacity}</span></li>
-                <li><FontAwesomeIcon icon='cogs' className="mr-2"/><span><strong>Transmission:</strong> {car.transmission}</span></li>
-                <li><FontAwesomeIcon icon='door-closed' className="mr-2"/><span><strong>Doors:</strong> {car.doors}</span></li>
+                <li><FontAwesomeIcon icon='barcode' className="mr-2"/><span><strong>Plate:</strong> {props.carDetails.plate}</span></li>
+                <li><FontAwesomeIcon icon='users' className="mr-2"/><span><strong>Capacity:</strong> {props.carDetails.capacity}</span></li>
+                <li><FontAwesomeIcon icon='cogs' className="mr-2"/><span><strong>Transmission:</strong> {props.carDetails.transmission}</span></li>
+                <li><FontAwesomeIcon icon='door-closed' className="mr-2"/><span><strong>Doors:</strong> {props.carDetails.doors}</span></li>
               </ul>
             </div>
             <div className="item-flex">
               <ul>
-                <li><FontAwesomeIcon icon="palette" className="mr-2"/><span><strong>Color:</strong> {car.color}</span></li>
-                <li><FontAwesomeIcon icon="tachometer-alt" className="mr-2"/><span><strong>Kms:</strong> {car.kms}</span></li>
-                <li><FontAwesomeIcon icon="store" className="mr-2"/><span><strong>Rental:</strong> {car.rental.name}</span></li>
-                <li><FontAwesomeIcon icon="star" className="mr-2"/><span><strong>Rating:</strong> {car.rating}</span></li>
+                <li><FontAwesomeIcon icon="palette" className="mr-2"/><span><strong>Color:</strong> {props.carDetails.color}</span></li>
+                <li><FontAwesomeIcon icon="tachometer-alt" className="mr-2"/><span><strong>Kms:</strong> {props.carDetails.kms}</span></li>
+                <li><FontAwesomeIcon icon="store" className="mr-2"/><span><strong>Rental:</strong> {props.rental.carDetails.name}</span></li>
+                <li><FontAwesomeIcon icon="star" className="mr-2"/><span><strong>Rating:</strong> {props.carDetails.rating}</span></li>
               </ul>
             </div>
           </div>

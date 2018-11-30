@@ -37,6 +37,7 @@ function requestCarDetail(id, provider) {
 }
 
 function receiveCarDetail(id, provider, json) {
+  console.log('Estes es el JSON:', json)
   return {
     type: RECEIVE_CAR_DETAIL,
     id, provider,
@@ -45,9 +46,7 @@ function receiveCarDetail(id, provider, json) {
   }
 }
 
-function shouldFetchDetails(state, id, provider) {
-  console.log('Provider', state.carDetails[provider]);
-
+function shouldFetchDetails(state, id, provider) {  
   const detailsProvider = state.carDetails[provider];  
   if(!detailsProvider) {
     return true;    
@@ -60,26 +59,22 @@ function shouldFetchDetails(state, id, provider) {
   }  
 }
 
-export function fetchCarDetailsIfIsNeeded(id, provider) {
+export function fetchCarDetailsIfNeeded(id, provider) {
   return (dispatch, getState) => {
     if(shouldFetchDetails(getState(), id, provider)) {
-      dispatch(fetchCarDetail(id, provider))
+      return dispatch(fetchCarDetail(id, provider))
     }    
   }
 }
 
 export function fetchCarDetail(id, provider) {    
-    return (dispatch, getState) => {
-      if(shouldFetchDetails(getState(), id)) {
-        dispatch(requestCarDetail(id, provider))        
-        return axios.get(`${BASE_API_URL[provider]}/cars/${id}`)
-          .then(
-            res => {
-              console.log(res.data)
-              res.json()})
-              .then(json => dispatch(receiveCarDetail(id, provider, json))),
-            error => console.log('An error ocurred.', error)      
-    }
+    return dispatch => {      
+      dispatch(requestCarDetail(id, provider))        
+      return axios.get(`${BASE_API_URL[provider]}/${id}`)
+        .then(
+          json => dispatch(receiveCarDetail(id, provider, json)),
+          error => console.log('An error ocurred.', error)
+        )      
   }  
 }
 
