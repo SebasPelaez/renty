@@ -13,9 +13,9 @@ export const CAR_TYPES = [
   {id:"lujo",description:"Lujo"},
 ]
 
-export const BASE_API_URL = {
-  123:'https://renty-web.herokuapp.com/cars',
-  123456789:'https://renty-ruby.herokuapp.com/cars'
-}
-
 export const PROVIDER_IDS = [123, 123456789]
+
+export const PROVIDERS_API_URL = {
+  123:'https://renty-web.herokuapp.com',
+  123456789:'https://renty-ruby.herokuapp.com'
+}

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { BASE_API_URL, PROVIDER_IDS } from '../constants'
+import { PROVIDER_IDS, PROVIDERS_API_URL } from '../constants'
 
 export const REQUEST_CARS = 'REQUEST_CARS'
 export const RECEIVE_CARS = 'RECEIVE_CARS'
@@ -36,19 +36,20 @@ function requestCarDetail(id, provider) {
   }
 }
 
-function receiveCarDetail(id, provider, json) {
+function receiveCarDetails(carId, rentalId, details) {
   return {
     type: RECEIVE_CAR_DETAIL,
-    id, provider,
-    details: json.data,
-    receiveAt: Date.now()
+    receiveAt: Date.now(),
+    carId,
+    rentalId,
+    details
   }
 }
 
 function shouldFetchDetails(state, id, provider) {
-  console.log('Provider', state.carDetails[provider]);
 
-  const detailsProvider = state.carDetails[provider];  
+  const detailsProvider = state.carDetails[provider]
+
   if(!detailsProvider) {
     return true;    
   } else {
@@ -60,35 +61,31 @@ function shouldFetchDetails(state, id, provider) {
   }  
 }
 
-export function fetchCarDetailsIfIsNeeded(id, provider) {
-  return (dispatch, getState) => {
-    if(shouldFetchDetails(getState(), id, provider)) {
-      dispatch(fetchCarDetail(id, provider))
-    }    
-  }
+function fetchCarDetails(carId, rentalId) {    
+  return dispatch => {
+    dispatch(requestCarDetail(carId, rentalId))
+    return axios.get(`${PROVIDERS_API_URL[rentalId]}/cars/${carId}`)
+      .then(
+        res => dispatch(receiveCarDetails(carId, rentalId, res.data)),
+        error => console.log('An error ocurred.', error)
+      )
+  }      
 }
 
-export function fetchCarDetail(id, provider) {    
-    return (dispatch, getState) => {
-      if(shouldFetchDetails(getState(), id)) {
-        dispatch(requestCarDetail(id, provider))        
-        return axios.get(`${BASE_API_URL[provider]}/cars/${id}`)
-          .then(
-            res => {
-              console.log(res.data)
-              res.json()})
-              .then(json => dispatch(receiveCarDetail(id, provider, json))),
-            error => console.log('An error ocurred.', error)      
-    }
-  }  
+export function fetchCarDetailsIfNeeded(carId, rentalId) {
+  return (dispatch, getState) => {
+    if(shouldFetchDetails(getState(), carId, rentalId)) {
+      dispatch(fetchCarDetails(carId, rentalId))
+    }    
+  }
 }
 
 export function fetchCars(search) {
   return dispatch => {
     dispatch(requestCars(search))
     let searchParams = ``
-    PROVIDER_IDS.forEach((providerId) => {
-      axios.get(`${BASE_API_URL[providerId]}/search?${searchParams}`)
+    PROVIDER_IDS.forEach(providerId => {
+      axios.get(`${PROVIDERS_API_URL[providerId]}/cars/search?${searchParams}`)
       .then(
         res => dispatch(receiveCars(res.data)),
         error => console.log('An error ocurred.', error)

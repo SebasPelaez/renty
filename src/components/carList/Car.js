@@ -2,8 +2,7 @@ import React from 'react'
 import Popup from 'reactjs-popup'
 import './Car.scss'
 import Currency from 'react-currency-formatter'
-import Details from './Details'
-import DetailsContainer from '../../containers/DetailsContainer'
+import RentalCarDetails from '../../containers/RentalCarDetails'
 
 const Car = props => {
 
@@ -40,7 +39,7 @@ const Car = props => {
         </p>
 
         <Popup trigger={popupTrigger} position="right center" modal contentStyle={settingsModal}>          
-          <DetailsContainer carId={props.id} carRental={props.rental.id} />
+          <RentalCarDetails carId={props.id} rentalId={props.rental.id} />
         </Popup>
 
       </div>

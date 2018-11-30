@@ -11,11 +11,6 @@ let initialCarsState = {
   items: []
 }
 
-let initialCarState = {
-  isFetching: false,
-  details: []
-}
-
 function carSearch(state = {}, action) {
   switch (action.type) {
     case SEARCH_CARS:
@@ -41,28 +36,27 @@ function cars(state = initialCarsState, action) {
 }
 
 function carDetails(state = {}, action) {
-  console.log('action', action)
   switch(action.type) {
     case REQUEST_CAR_DETAIL:
       return Object.assign({}, state, {
-        [action.provider]: {
-          [action.id]: {
+        [action.rentalId]: {
+          [action.carId]: {
             isFetching: true
           }
         }        
       })
     case RECEIVE_CAR_DETAIL:
-      return Object.assign({}, state, {        
-        [action.provider]: {
-          [action.id]: {
+      return Object.assign({}, state, {
+        [action.rentalId]: {
+          [action.carId]: {
             details: action.details,
             isFetching: false,
             lastUpdated: action.receivedAt,
           }          
         },        
       })
-      default:
-        return state
+    default:
+      return state
   }
 }
 
