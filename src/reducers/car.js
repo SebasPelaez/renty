@@ -41,19 +41,24 @@ function cars(state = initialCarsState, action) {
 }
 
 function carDetails(state = {}, action) {
+  console.log('action', action)
   switch(action.type) {
     case REQUEST_CAR_DETAIL:
       return Object.assign({}, state, {
-        [action.id]: {
-          isFetching: true
-        }
+        [action.provider]: {
+          [action.id]: {
+            isFetching: true
+          }
+        }        
       })
     case RECEIVE_CAR_DETAIL:
       return Object.assign({}, state, {        
-        [action.id]: {
-          details: action.details,
-          isFetching: false,
-          lastUpdated: action.receivedAt,
+        [action.provider]: {
+          [action.id]: {
+            details: action.details,
+            isFetching: false,
+            lastUpdated: action.receivedAt,
+          }          
         },        
       })
       default:

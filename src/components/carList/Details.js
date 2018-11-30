@@ -5,7 +5,7 @@ import { fetchCarDetail } from '../../actions/car'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import "./Details.scss"
 
-//const Details = (props, { car, isFetching }) => {
+const Details = (props, { car }) => {
   const settingsSlider = {
     dots: true,
     infinite: false,
@@ -41,15 +41,10 @@ import "./Details.scss"
     ]
   };
 
-class Details extends Component {
+/*class Details extends Component {
   constructor(props) {
     super(props)
-  }
-
-  componentWillMount() {
-    const { dispatch } = this.props
-    dispatch(fetchCarDetail(this.props.car.id, this.props.car.rental.name))
-  }
+  }*/
 
   /*car = {
     "id": 1,
@@ -76,10 +71,10 @@ class Details extends Component {
         "https://i.ytimg.com/vi/PwxPLKVne2s/maxresdefault.jpg"
    ]   
   }*/
-  render() {
+  /*render() {
     if(isFetching) {  // this.props.${props.car.id}.isFetching
       return <span> cargando...</span>
-    } else {    
+    } else {    */
       return(
         <div>
           <div className="margin-slider">
@@ -122,11 +117,7 @@ class Details extends Component {
         </div>  
       ) 
     }
-  }
-}
+//  }
+// }
 
-const mapStateToProps = (state, ownProps) => ({
-  details: state.carDetails[ownProps.car.id]
-})
-
-export default connect(mapStateToProps)(Details)
+export default Details
