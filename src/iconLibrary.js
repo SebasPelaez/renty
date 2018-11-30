@@ -12,7 +12,9 @@ import {
   faTachometerAlt,
   faPalette,
   faStore,
-  faStar
+  faStar,
+  faCar,
+  faSuitcase
 } from '@fortawesome/free-solid-svg-icons'
 
 export const addIconLibrary = () => {
@@ -29,6 +31,8 @@ export const addIconLibrary = () => {
     faPalette,
     faTachometerAlt,
     faStore,
-    faStar
+    faStar,
+    faCar,
+    faSuitcase
   )
 }

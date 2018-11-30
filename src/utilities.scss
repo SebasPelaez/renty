@@ -1,0 +1,15 @@
+@import './index.scss';
+
+// Variables
+$blue-dark: #12223D;
+$field-spacing: .25rem .5rem;
+$default-border: 1px solid $gray-300;
+$blue-border-2: 2px solid $blue-dark;
+
+// Classes
+.truncated {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
