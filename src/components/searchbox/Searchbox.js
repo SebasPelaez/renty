@@ -62,30 +62,41 @@ class Searchbox extends Component {
   }
 
   render() {
-    return(
-      <div className="col-sm-auto">
-        <div className="searchbox shadow-sm">
-          <h4>Search rental cars</h4>
+    return (
+      <div className="searchbox shadow-sm">
+        <h4>Search rental cars</h4>
 
-          <h6 className="mt-4">Pickup</h6>
-          <input className="pickup" type="text" placeholder="Add address, or place ..." />
+        <form id="searchbox-form" onSubmit={this.searchRentalCars}>
+          <div className="row justify-content-start align-items-end">
+            <div className="col-sm-auto pickup-column">
+              <div className="pickup">
+                <h6>Pickup</h6>
+                <input className="pickup" type="text" placeholder="Add address, or place ..." />
+              </div>
+            </div>
 
-          <h6 className="mt-4">Time</h6>
-          <Datepicker
-            onDatesChange={this.onDatesChange}
-            onFocusChange={this.onFocusChange}
-            focusedInput={this.state.focusedInput}
-            startDate={this.state.startDate}
-            endDate={this.state.endDate} />
+            <div className="col-sm-auto">
+              <h6>Time</h6>
+              <Datepicker
+                onDatesChange={this.onDatesChange}
+                onFocusChange={this.onFocusChange}
+                focusedInput={this.state.focusedInput}
+                startDate={this.state.startDate}
+                endDate={this.state.endDate} />
+            </div>
 
-          <h6 className="mt-4">Type of Vehicle</h6>
-          <form id="searchbox-form" onSubmit={this.searchRentalCars}>
-            <TypeSelector defaultValue={this.state.type} updateCarType={this.updateCarType} />
-            <button className="btn btn-success mt-4" type="submit" form="searchbox-form">
-              Search
-            </button>
-          </form>
-        </div>
+            <div className="col-sm-auto type-column">
+              <h6>Type of Vehicle</h6>
+              <TypeSelector defaultValue={this.state.type} updateCarType={this.updateCarType} />
+            </div>
+          
+            <div className="col-sm-auto">
+              <button className="btn btn-success" type="submit" form="searchbox-form">
+                Search
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
     )
   }

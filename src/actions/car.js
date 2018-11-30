@@ -20,13 +20,6 @@ function receiveCars(data) {
   }
 }
 
-function searchCars(search) {
-  return {
-    type: SEARCH_CARS,
-    search
-  }
-}
-
 export function fetchCars(search) {
   return dispatch => {
     dispatch(requestCars(search))
@@ -42,3 +35,5 @@ export function fetchCars(search) {
     })
   }
 }
+
+export { receiveCars }
