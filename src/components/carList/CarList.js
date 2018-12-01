@@ -1,10 +1,13 @@
 import React from 'react'
 import Car from './Car'
 import './Car.scss'
+import { RENTAL_CARS } from '../../constants'
+import { receiveCars } from '../../actions/car'
 
-const CarList = ({ cars, isFetching }) => {
+const CarList = ({ cars, isFetching, dispatch }) => {
+
   if (isFetching) {
-    return <span> cargando...</span>
+    return <span> Loading...</span>
   } else if (cars.length === 0) {
     return(
       <p>Nothing to show!<br/>
@@ -13,7 +16,7 @@ const CarList = ({ cars, isFetching }) => {
     )
   } else {
     return(
-      <div className="card-list col-sm-8">
+      <div className="card-list col-sm-12">
         <div className="container-flex">
           {cars.map(car => 
             <Car key={car.id} {...car}/>

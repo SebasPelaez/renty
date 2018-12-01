@@ -7,12 +7,16 @@ export const DEVELOPERS = [
 ]
 
 export const CAR_TYPES = [
-  'Sedan',
-  'SUV',
-  'Cabriolet',
-  'Minivan',
-  'Econom',
-  'Van'
+  {id:"economico",description:"Económico"},
+  {id:"compacto",description:"Compacto"},
+  {id:"suv",description:"Suv"},
+  {id:"lujo",description:"Lujo"},
 ]
 
+export const PROVIDER_IDS = [967543461, 123456789]
+
+export const PROVIDERS_API_URL = {
+  967543461:'https://renty-web.herokuapp.com',
+  123456789:'https://renty-ruby.herokuapp.com'
+}
 export const BASE_API_URL = ['https://renty-web.herokuapp.com/cars', 'https://renty-ruby.herokuapp.com/cars/search']

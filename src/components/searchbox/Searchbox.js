@@ -20,11 +20,12 @@ class Searchbox extends Component {
     this.searchRentalCars = this.searchRentalCars.bind(this)
     this.handleChangeType = this.handleChangeType.bind(this)
     this.updateCarType = this.updateCarType.bind(this)
+    this.onChangePickup = this.onChangePickup.bind(this)
     this.state = {
       pickup: '',
       startDate: props.initialStartDate,
       endDate: props.initialEndDate,
-      type: 'Sedan',
+      type: {id:"economico", description:"Económico"},
       focusedInput
     }
 
@@ -37,7 +38,7 @@ class Searchbox extends Component {
   onDatesChange({ startDate, endDate }) {    
     this.setState({
       startDate: startDate && this.stateDateWrapper(startDate),
-      endDate: endDate && this.stateDateWrapper(endDate),
+      endDate: endDate && this.stateDateWrapper(endDate)
     });
   }
 
@@ -60,32 +61,49 @@ class Searchbox extends Component {
       type: value
     })
   }
+  onChangePickup(value) {
+    this.setState({
+      pickup: value.target.value
+    })
+  }
 
   render() {
-    return(
-      <div className="col-sm-auto">
-        <div className="searchbox shadow-sm">
-          <h4>Search rental cars</h4>
+    return (
+      <div className="searchbox shadow-sm">
+        <h4>Search rental cars</h4>
 
-          <h6 className="mt-4">Pickup</h6>
-          <input className="pickup" type="text" placeholder="Add address, or place ..." />
+        <form id="searchbox-form" onSubmit={this.searchRentalCars}>
+          <div className="row justify-content-start align-items-end">
+            <div className="col-sm-auto pickup-column">
+              <div className="pickup">
+                <h6>Pickup</h6>
+                <input className="pickup" type="text" placeholder="Add address, or place ..." 
+                  onChange={this.onChangePickup} />
+              </div>
+            </div>
 
-          <h6 className="mt-4">Time</h6>
-          <Datepicker
-            onDatesChange={this.onDatesChange}
-            onFocusChange={this.onFocusChange}
-            focusedInput={this.state.focusedInput}
-            startDate={this.state.startDate}
-            endDate={this.state.endDate} />
+            <div className="col-sm-auto">
+              <h6>Time</h6>
+              <Datepicker
+                onDatesChange={this.onDatesChange}
+                onFocusChange={this.onFocusChange}
+                focusedInput={this.state.focusedInput}
+                startDate={this.state.startDate}
+                endDate={this.state.endDate} />
+            </div>
 
-          <h6 className="mt-4">Type of Vehicle</h6>
-          <form id="searchbox-form" onSubmit={this.searchRentalCars}>
-            <TypeSelector defaultValue={this.state.type} updateCarType={this.updateCarType} />
-            <button className="btn btn-success mt-4" type="submit" form="searchbox-form">
-              Search
-            </button>
-          </form>
-        </div>
+            <div className="col-sm-auto type-column">
+              <h6>Type of Vehicle</h6>
+              <TypeSelector defaultValue={this.state.type.description} updateCarType={this.updateCarType} />
+            </div>
+          
+            <div className="col-sm-auto">
+              <button className="btn search-button" type="submit" form="searchbox-form">
+                Search
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
     )
   }
