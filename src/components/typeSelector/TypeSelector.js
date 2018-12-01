@@ -23,7 +23,7 @@ const TypeSelector = ({ defaultValue, updateCarType }) => {
             key={index}
             onClick={() => updateCarType(type)}
           >
-            {type}
+            {type.description}
           </button>
         )} 
       </div>

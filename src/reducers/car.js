@@ -1,7 +1,9 @@
 import {
   REQUEST_CARS,
   RECEIVE_CARS,
-  SEARCH_CARS
+  SEARCH_CARS,
+  REQUEST_CAR_DETAIL,
+  RECEIVE_CAR_DETAIL
 } from '../actions/car'
 
 let initialCarsState = {
@@ -33,4 +35,29 @@ function cars(state = initialCarsState, action) {
   }
 }
 
-export { cars, carSearch } 
+function carDetails(state = {}, action) {
+  switch(action.type) {
+    case REQUEST_CAR_DETAIL:
+      return Object.assign({}, state, {
+        [action.rentalId]: {
+          [action.carId]: {
+            isFetching: true
+          }
+        }        
+      })
+    case RECEIVE_CAR_DETAIL:
+      return Object.assign({}, state, {
+        [action.rentalId]: {
+          [action.carId]: {
+            details: action.details,
+            isFetching: false,
+            lastUpdated: action.receivedAt,
+          }          
+        },        
+      })
+    default:
+      return state
+  }
+}
+
+export { cars, carDetails, carSearch } 

@@ -1,4 +1,5 @@
 @import '../../index.scss';
+@import '../../utilities.scss';
 
 * {
   box-sizing: border-box;
@@ -39,6 +40,16 @@
       max-height: 1.5rem;
       margin-right: 1rem;
     }
+  }
+}
+
+.btn-login {
+  background-color: $blue-dark !important;
+  color: $white;
+  border-radius: 5px;
+  border: 1px solid $white !important;    
+  &:hover {
+    background-color: $red-dark !important;
   }
 }
 

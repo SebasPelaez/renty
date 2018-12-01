@@ -1,7 +1,8 @@
 import React from 'react'
 import Popup from 'reactjs-popup'
 import './Car.scss'
-import Details from './Details'
+import Currency from 'react-currency-formatter'
+import RentalCarDetails from '../../containers/RentalCarDetails'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Car = props => {
@@ -11,6 +12,9 @@ const Car = props => {
         VIEW DETAILS
       </button>
     </div>
+  const settingsModal = {
+    width: "80% !important"
+  }
 
   return(
     <div className="rental-car card-item shadow-sm">
@@ -38,8 +42,8 @@ const Car = props => {
           <span className="amount">{props.price}</span>
         </div>
 
-        <Popup trigger={popupTrigger} position="right center" modal>
-          <Details car={props} />
+        <Popup trigger={popupTrigger} position="right center" modal contentStyle={settingsModal}>          
+          <RentalCarDetails carId={props.id} rentalId={props.rental.id} />
         </Popup>
 
       </div>

@@ -20,11 +20,12 @@ class Searchbox extends Component {
     this.searchRentalCars = this.searchRentalCars.bind(this)
     this.handleChangeType = this.handleChangeType.bind(this)
     this.updateCarType = this.updateCarType.bind(this)
+    this.onChangePickup = this.onChangePickup.bind(this)
     this.state = {
       pickup: '',
       startDate: props.initialStartDate,
       endDate: props.initialEndDate,
-      type: 'Sedan',
+      type: {id:"economico", description:"Económico"},
       focusedInput
     }
 
@@ -37,7 +38,7 @@ class Searchbox extends Component {
   onDatesChange({ startDate, endDate }) {    
     this.setState({
       startDate: startDate && this.stateDateWrapper(startDate),
-      endDate: endDate && this.stateDateWrapper(endDate),
+      endDate: endDate && this.stateDateWrapper(endDate)
     });
   }
 
@@ -60,6 +61,11 @@ class Searchbox extends Component {
       type: value
     })
   }
+  onChangePickup(value) {
+    this.setState({
+      pickup: value.target.value
+    })
+  }
 
   render() {
     return (
@@ -71,7 +77,8 @@ class Searchbox extends Component {
             <div className="col-sm-auto pickup-column">
               <div className="pickup">
                 <h6>Pickup</h6>
-                <input className="pickup" type="text" placeholder="Add address, or place ..." />
+                <input className="pickup" type="text" placeholder="Add address, or place ..." 
+                  onChange={this.onChangePickup} />
               </div>
             </div>
 
@@ -87,11 +94,11 @@ class Searchbox extends Component {
 
             <div className="col-sm-auto type-column">
               <h6>Type of Vehicle</h6>
-              <TypeSelector defaultValue={this.state.type} updateCarType={this.updateCarType} />
+              <TypeSelector defaultValue={this.state.type.description} updateCarType={this.updateCarType} />
             </div>
           
             <div className="col-sm-auto">
-              <button className="btn btn-success" type="submit" form="searchbox-form">
+              <button className="btn search-button" type="submit" form="searchbox-form">
                 Search
               </button>
             </div>

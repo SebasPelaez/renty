@@ -7,7 +7,7 @@ import { receiveCars } from '../../actions/car'
 const CarList = ({ cars, isFetching, dispatch }) => {
 
   if (isFetching) {
-    return <span> cargando...</span>
+    return <span> Loading...</span>
   } else if (cars.length === 0) {
     return(
       <p>Nothing to show!<br/>
