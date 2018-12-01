@@ -80,10 +80,13 @@ export function fetchCarDetailsIfNeeded(carId, rentalId) {
   }
 }
 
-export function fetchCars(search) {
+export function fetchCars(search) {    
+  let startDate = search.startDate.format().toString().substring(0, 10);  
+  let finishDate = search.endDate.format().toString().substring(0, 10);
+  console.log('State', finishDate)
   return dispatch => {
     dispatch(requestCars(search))
-    let searchParams = `from=${search.from}&to=${search.to}&type=${search.type}&pickup=${search.pickup}`
+    let searchParams = `from=${startDate}&to=${finishDate}&type=${search.type.id}&pickup=${search.pickup}`    
     PROVIDER_IDS.forEach(providerId => {
       axios.get(`${PROVIDERS_API_URL[providerId]}/cars/search?${searchParams}`)
       .then(

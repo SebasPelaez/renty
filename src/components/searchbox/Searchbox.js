@@ -20,6 +20,7 @@ class Searchbox extends Component {
     this.searchRentalCars = this.searchRentalCars.bind(this)
     this.handleChangeType = this.handleChangeType.bind(this)
     this.updateCarType = this.updateCarType.bind(this)
+    this.onChangePickup = this.onChangePickup.bind(this)
     this.state = {
       pickup: '',
       startDate: props.initialStartDate,
@@ -60,6 +61,11 @@ class Searchbox extends Component {
       type: value
     })
   }
+  onChangePickup(value) {
+    this.setState({
+      pickup: value.target.value
+    })
+  }
 
   render() {
     return (
@@ -71,7 +77,8 @@ class Searchbox extends Component {
             <div className="col-sm-auto pickup-column">
               <div className="pickup">
                 <h6>Pickup</h6>
-                <input className="pickup" type="text" placeholder="Add address, or place ..." />
+                <input className="pickup" type="text" placeholder="Add address, or place ..." 
+                  onChange={this.onChangePickup} />
               </div>
             </div>
 
