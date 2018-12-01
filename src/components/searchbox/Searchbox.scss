@@ -11,6 +11,13 @@
     }
 
     .row > * { margin-top: 1.5rem }
+    .search-button {
+      background-color: $red-dark;
+      color: white;
+      &:hover {
+        background-color: $blue-dark;
+      }   
+    }
   }
 
   .pickup input {

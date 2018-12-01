@@ -91,7 +91,7 @@ class Searchbox extends Component {
             </div>
           
             <div className="col-sm-auto">
-              <button className="btn btn-success" type="submit" form="searchbox-form">
+              <button className="btn search-button" type="submit" form="searchbox-form">
                 Search
               </button>
             </div>

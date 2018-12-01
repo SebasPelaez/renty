@@ -5,7 +5,8 @@ import { RENTAL_CARS } from '../../constants'
 import { receiveCars } from '../../actions/car'
 
 const CarList = ({ cars, isFetching, dispatch }) => {
-  cars.length === 0 && dispatch(receiveCars(RENTAL_CARS))
+  
+  cars.length === 0 && dispatch(receiveCars(RENTAL_CARS)) // Test
 
   if (isFetching) {
     return <span> cargando...</span>

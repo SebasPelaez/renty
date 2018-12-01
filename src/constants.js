@@ -16,7 +16,7 @@ export const CAR_TYPES = [
 export const PROVIDER_IDS = [967543461, 123456789]
 
 export const PROVIDERS_API_URL = {
-  123:'https://renty-web.herokuapp.com',
+  967543461:'https://renty-web.herokuapp.com',
   123456789:'https://renty-ruby.herokuapp.com'
 }
 export const BASE_API_URL = ['https://renty-web.herokuapp.com/cars', 'https://renty-ruby.herokuapp.com/cars/search']
@@ -29,8 +29,8 @@ export const RENTAL_CARS = [
     model: "Challenger",
     price: "350.000",
     rental: {
-      id: "123456789",
-      name: "Ruby"
+      id: "967543461",
+      name: "DoD pyRent"
     },
     type: "Musclecar",
     thumbnail: "https://cars.usnews.com/static/images/Auto/izmo/i51570143/2018_dodge_challenger_angularfront.jpg"
