@@ -83,7 +83,7 @@ export function fetchCarDetailsIfNeeded(carId, rentalId) {
 export function fetchCars(search) {
   return dispatch => {
     dispatch(requestCars(search))
-    let searchParams = ``
+    let searchParams = `from=${search.from}&to=${search.to}&type=${search.type}&pickup=${search.pickup}`
     PROVIDER_IDS.forEach(providerId => {
       axios.get(`${PROVIDERS_API_URL[providerId]}/cars/search?${searchParams}`)
       .then(

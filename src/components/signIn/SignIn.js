@@ -6,7 +6,7 @@ import './SignIn.scss'
 
 const SignIn = ({ authError, signIn }) => {
 
-  const popupTrigger = <button className="btn btn-login btn-outline-success my-2 my-sm-0" type="submit"> Login </button>
+  const popupTrigger = <button className="btn btn-login my-2 my-sm-0" type="submit"> Login </button>
 
   return (
     <Popup trigger={popupTrigger} position="right center" modal>
