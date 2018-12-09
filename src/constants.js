@@ -15,8 +15,28 @@ export const CAR_TYPES = [
 
 export const PROVIDER_IDS = [967543461, 123456789]
 
-export const PROVIDERS_API_URL = {
+export const PROVIDERS = {
   967543461:'https://renty-web.herokuapp.com',
   123456789:'https://renty-ruby.herokuapp.com'
 }
 export const BASE_API_URL = ['https://renty-web.herokuapp.com/cars', 'https://renty-ruby.herokuapp.com/cars/search']
+
+// Mocking
+
+export const bookingsMock = [{
+  id: 1,
+  carId: 23,
+  bookingDate: '3-12-2018',
+  pickupDate: '4-12-2018',
+  deliverDate: '6-12-2018',
+  pickupPlace: 'Calle 16B # 53-25',
+  deliverPlace: 'Aeropuerto Internacional José María Córdova',
+  rentalId: 123456789
+}]
+
+export const cancelingBookingMock = {
+  status: 200,
+  data: {
+    message: 'Your booking has been cancel with sucess!'
+  }
+}
