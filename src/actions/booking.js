@@ -4,10 +4,10 @@ import { PROVIDER_IDS, PROVIDERS } from '../constants'
 export const REQUEST_BOOKING_CAR = 'REQUEST_BOOKING_CAR';
 export const RECEIVE_BOOKING_CAR = 'RECEIVE_BOOKING_CAR';
 
-function requestBookingCar(booking) {
+function requestBookingCar(carId, rentalId, booking) {
   return {
     type: REQUEST_BOOKING_CAR,
-    booking
+    carId, rentalId, booking
   }
 }
 
@@ -18,7 +18,7 @@ function receiveBookingCar(data) {
   }
 }
 
-export function bookingCar(booking) {
+export function bookingCar(carId, rentalId, booking) {
   return dispatch => {
     dispatch(requestBookingCar(booking))
     return axios.post(`${PROVIDERS[booking.rentalId]}/booking`, {booking})

@@ -29,10 +29,10 @@ function searchCars(search) {
   }
 }
 
-function requestCarDetail(id, provider) {
+function requestCarDetail(carId, rentalId) {
   return {
     type: REQUEST_CAR_DETAIL,
-    id, provider
+    carId, rentalId
   }
 }
 
