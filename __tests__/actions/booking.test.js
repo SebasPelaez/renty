@@ -1,17 +1,11 @@
 import thunk from 'redux-thunk'
 import configureMockStore from 'redux-mock-store'
 import moxios from 'moxios'
-import { bookingsMock, cancelingBookingMock } from '../../src/constants'
-import {
-  REQUEST_BOOKINGS,
-  RECEIVE_BOOKINGS,
-  RECEIVE_CANCELING_STATUS,
-  requestBookings,
-  receiveBookings,
-  fetchBookings,
-  receiveCancelingStatus,
-  cancelBooking
-} from '../../src/actions/booking'
+import { normalize } from 'normalizr'
+import { bookingsMock } from '../../src/constants'
+import { ADD_ALERT } from '../../src/actions/alert'
+import * as actions from '../../src/actions/booking'
+import * as schema from '../../src/actions/schema'
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
@@ -19,26 +13,17 @@ const mockStore = configureMockStore(middlewares)
 describe('Booking actions', () => {
   it('should create an action to change isFetching status', () => {
     const expectedAction = {
-      type: REQUEST_BOOKINGS
+      type: actions.REQUEST_BOOKINGS
     }
-    expect(requestBookings()).toEqual(expectedAction)
+    expect(actions.requestBookings()).toEqual(expectedAction)
   })
 
   it('should create an action to receive bookings', () => {
     const expectedAction = {
-      type: RECEIVE_BOOKINGS,
-      bookings: bookingsMock
+      type: actions.RECEIVE_BOOKINGS,
+      bookings: normalize(bookingsMock, schema.arrayOfBookings).entities.bookings
     }
-    expect(receiveBookings(bookingsMock)).toEqual(expectedAction)
-  })
-
-  it('should create an action to receive status of booking canceling', () => {
-    const expectedAction = {
-      type: RECEIVE_CANCELING_STATUS,
-      status: cancelingBookingMock.status,
-      message: cancelingBookingMock.data.message
-    }
-    expect(receiveCancelingStatus(cancelingBookingMock)).toEqual(expectedAction)
+    expect(actions.receiveBookings(bookingsMock)).toEqual(expectedAction)
   })
 })
 
@@ -73,37 +58,64 @@ describe('Booking async actions', () => {
       })
     })
 
-    const expectedActions = [
-      { type: REQUEST_BOOKINGS },
-      { type: RECEIVE_BOOKINGS, bookings: bookingsMock.concat(responseAlt) }
-    ]
     const store = mockStore({ bookings: {} })
+    const normalizedData = normalize(bookingsMock.concat(responseAlt), schema.arrayOfBookings)
+    const expectedActions = [
+      { type: actions.REQUEST_BOOKINGS },
+      { type: actions.RECEIVE_BOOKINGS, bookings: normalizedData.entities.bookings }
+    ]
 
-    return store.dispatch(fetchBookings(providers, userId)).then(() => {
+    return store.dispatch(actions.fetchBookings(providers, userId)).then(() => {
       expect(store.getActions()).toEqual(expectedActions)
     })
   })
 
-  it('creates RECEIVE_CANCELING_STATUS when cancel booking has been done', () => {
+  it('creates REMOVE_BOOKING when cancel booking has been done with success', () => {
     moxios.wait(() => {
-      let request = moxios.requests.mostRecent()
+      const request = moxios.requests.mostRecent()
       request.respondWith({
-        status: cancelBooking.status,
+        status: 200,
+        response: []
+      })
+    })
+    
+    const store = mockStore({ alerts: [], bookings: {} })
+    const bookingIdMock = '123'
+    const expectedActions = [{
+      type: actions.REMOVE_BOOKING,
+      bookingId: bookingIdMock
+    }]
+
+    return store.dispatch(actions.cancelBooking(bookingIdMock, 'DJ4NG0'))
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions)
+      })
+  })
+
+  it('creates REMOVE_BOOKING when cancel booking has been done with failure', () => {
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent()
+      request.reject({
+        status: 404,
         response: {
-          message: cancelingBookingMock.data.message
+          data: []
         }
       })
     })
 
+    const store = mockStore({ alerts: [], bookings: {} })
+    const alertMock = {
+      message: 'We cannot process your request',
+      type: 'danger'
+    }
     const expectedActions = [{
-      type: RECEIVE_CANCELING_STATUS,
-      status: cancelBooking.status,
-      message: cancelingBookingMock.data.message
+      type: ADD_ALERT,
+      alert: alertMock
     }]
-    const store = mockStore({ bookings: {} })
 
-    return store.dispatch(cancelBooking('B01', 'DJ4NG0')).then(() => {
-      expect(store.getActions()).toEqual(expectedActions)
-    })
+    return store.dispatch(actions.cancelBooking('123', 'DJ4NG0'))
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions)
+      })
   })
 })
