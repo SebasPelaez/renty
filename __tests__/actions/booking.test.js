@@ -2,7 +2,7 @@ import thunk from 'redux-thunk'
 import configureMockStore from 'redux-mock-store'
 import moxios from 'moxios'
 import { normalize } from 'normalizr'
-import { bookingsMock } from '../../src/constants'
+import { bookingsMock, alertMock } from '../../src/constants'
 import { ADD_ALERT } from '../../src/actions/alert'
 import * as actions from '../../src/actions/booking'
 import * as schema from '../../src/actions/schema'
@@ -104,10 +104,6 @@ describe('Booking async actions', () => {
     })
 
     const store = mockStore({ alerts: [], bookings: {} })
-    const alertMock = {
-      message: 'We cannot process your request',
-      type: 'danger'
-    }
     const expectedActions = [{
       type: ADD_ALERT,
       alert: alertMock
