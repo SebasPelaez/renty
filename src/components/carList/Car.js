@@ -33,7 +33,7 @@ const Car = props => {
 
         <div className="font-weight-bold my-4 price">
           <span className="mr-1 currency">COP$</span>
-          <span className="amount">{props.price}</span>
+          <span className="amount">{props.price.toLocaleString()}</span>
         </div>
 
         <Popup trigger={popupTrigger} position="right center" modal contentStyle={settingsModal}>          

@@ -47,7 +47,7 @@ const Details = (props) => {
       <div className="margin-slider">
         <div className="clearfix">
           <h5 className="float-left"><strong>{carDetails.brand + ' ' + carDetails.model} <span>{carDetails.type}</span></strong></h5>
-          <h5 className="float-right"><strong>${carDetails.price}</strong>/ per day</h5>
+          <h5 className="float-right"><strong>${carDetails.price.toLocaleString()}</strong>/ per day</h5>
         </div>
         
         <Slider {...settingsSlider}>
