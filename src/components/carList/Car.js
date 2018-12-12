@@ -31,15 +31,9 @@ const Car = props => {
           <FontAwesomeIcon icon="car" className="mr-2" fixedWidth />
           {props.type}
         </div>
-
-        <div>
-          <FontAwesomeIcon icon="suitcase" className="mr-2" fixedWidth />
-          {props.rental.name}
-        </div>
-
         <div className="font-weight-bold my-4 price">
           <span className="mr-1 currency">COP$</span>
-          <span className="amount">{props.price}</span>
+          <span className="amount">{props.price.toLocaleString()}</span>
         </div>
 
         <Popup trigger={popupTrigger} position="right center" modal contentStyle={settingsModal}>          
