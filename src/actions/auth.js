@@ -8,28 +8,22 @@ export const signIn = (socialNetwork) => {
       case 'FACEBOOK':
         provider = new firebase.auth.FacebookAuthProvider()
         provider.addScope('user_birthday')
-        firebase.auth().signInWithPopup(provider)
-          .then(() =>
-            dispatch({ type: 'LOGIN_SUCCESS' })
-          )
-          .catch(err =>
-            dispatch({ type: 'LOGIN_ERROR', err })
-          )
         break
       case 'GOOGLE':
         provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(provider)
-          .then(() =>
-            dispatch({ type: 'LOGIN_SUCCESS' })
-          )
-          .catch(err =>
-            dispatch({ type: 'LOGIN_ERROR', err })
-          )
         break
       default:
         return null
     }
   }
+  firebase.auth().signInWithPopup(provider)
+    .then(() =>
+      dispatch({ type: 'LOGIN_SUCCESS' })
+    )
+    .catch(err =>
+      dispatch({ type: 'LOGIN_ERROR', err })
+    )
+
 }
 
 export const signOut = () => {

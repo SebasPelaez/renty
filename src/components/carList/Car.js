@@ -1,9 +1,9 @@
-import React from 'react'
-import Popup from 'reactjs-popup'
-import './Car.scss'
-import Currency from 'react-currency-formatter'
-import RentalCarDetails from '../../containers/RentalCarDetails'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from "react"
+import Popup from "reactjs-popup"
+import "./Car.scss"
+import Currency from "react-currency-formatter"
+import RentalCarDetails from "../../containers/RentalCarDetails"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const Car = props => {
 
@@ -28,12 +28,12 @@ const Car = props => {
         </p>
 
         <div>
-          <FontAwesomeIcon icon='car' className="mr-2" fixedWidth />
+          <FontAwesomeIcon icon="car" className="mr-2" fixedWidth />
           {props.type}
         </div>
 
         <div>
-          <FontAwesomeIcon icon='suitcase' className="mr-2" fixedWidth />
+          <FontAwesomeIcon icon="suitcase" className="mr-2" fixedWidth />
           {props.rental.name}
         </div>
 
