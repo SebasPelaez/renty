@@ -1,0 +1,70 @@
+@import '../../utilities.scss';
+
+.booking {
+  background-color: $white;
+  border-radius: 10px;
+  border: 1px solid $gray-500;
+  padding: 1rem 1.5rem;
+  
+  svg { 
+    color: $gray-700;
+    margin-right: .5rem;
+  }
+
+  img {
+    object-fit: scale-down;
+    width: 300px;
+    height: 200px;
+  }
+
+  .price {
+    display: inline-block;
+    .amount { font-size: 1.75rem }
+  }
+
+  .content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .info, figure {
+    padding: 1rem;
+  }
+
+  .pickup {
+    margin-bottom: 2rem;
+  }
+}
+
+// Media Queries
+@include media-breakpoint-up(md) {
+  .booking {
+    width: 650px;
+  }
+
+  .content {
+    margin-bottom: 0;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .booking {
+    width: 85%;
+  }
+  .content {
+    flex-direction: column;
+    align-items: flex-start;
+
+    figure {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .booking, figure {
+    width: 100%;
+  }
+}

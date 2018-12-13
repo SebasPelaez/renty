@@ -1,7 +1,6 @@
 import React from 'react'
 import Popup from 'reactjs-popup'
 import './Car.scss'
-import Currency from 'react-currency-formatter'
 import RentalCarDetails from '../../containers/RentalCarDetails'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 

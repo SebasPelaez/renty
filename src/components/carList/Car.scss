@@ -87,3 +87,11 @@
   @include media-breakpoint-down(md) { flex-basis: 45% }
   @include media-breakpoint-down(xs) { flex-basis: 100% }
 }
+
+.nothing-to-show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  img { max-height: 300px }
+}
