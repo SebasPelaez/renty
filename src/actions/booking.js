@@ -27,8 +27,9 @@ export const removeBooking = bookingId => ({
 
 export function cancelBooking(bookingId, rentalId) {
   return (dispatch, getState) => {
+
     const requestData = {
-      token: getState().firebase.auth.uid,
+      token: getState().firebase.stsTokenManager.accessToken,
       bookingId: bookingId
     }
     return axios.delete(`${PROVIDERS[rentalId]}/booking/`, requestData)
@@ -41,7 +42,7 @@ export function fetchBookings(providers = Object.values(PROVIDERS), userId = nul
   return (dispatch, getState) => {
     dispatch(requestBookings())
     
-    const token = getState().firebase.auth.uid
+    const token = getState().firebase.stsTokenManager.accessToken
     const requests = providers.map(url => axios.get(`${url}/booking/${token}`))
     const responseReducer = (accumulator, response) => accumulator.concat(response.data)
 

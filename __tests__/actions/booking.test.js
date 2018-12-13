@@ -58,8 +58,16 @@ describe('Booking async actions', () => {
       })
     })
 
-    const store = mockStore({ bookings: {} })
     const normalizedData = normalize(bookingsMock.concat(responseAlt), schema.arrayOfBookings)
+    const store = mockStore({
+      alerts: [],
+      bookings: {},
+      firebase: {
+        stsTokenManager: {
+          accessToken: "5UP3R53CUR3"
+        }
+      }
+    })
     const expectedActions = [
       { type: actions.REQUEST_BOOKINGS },
       { type: actions.RECEIVE_BOOKINGS, bookings: normalizedData.entities.bookings }
@@ -79,7 +87,15 @@ describe('Booking async actions', () => {
       })
     })
     
-    const store = mockStore({ alerts: [], bookings: {} })
+    const store = mockStore({
+      alerts: [],
+      bookings: {},
+      firebase: {
+        stsTokenManager: {
+          accessToken: "5UP3R53CUR3"
+        }
+      }
+    })
     const bookingIdMock = '123'
     const expectedActions = [{
       type: actions.REMOVE_BOOKING,
@@ -103,7 +119,15 @@ describe('Booking async actions', () => {
       })
     })
 
-    const store = mockStore({ alerts: [], bookings: {} })
+    const store = mockStore({
+      alerts: [],
+      bookings: {},
+      firebase: {
+        stsTokenManager: {
+          accessToken: "5UP3R53CUR3"
+        }
+      }
+    })
     const expectedActions = [{
       type: ADD_ALERT,
       alert: alertMock
