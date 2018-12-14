@@ -1,39 +1,43 @@
-import firebase from "firebase";
+import { authRef, providers } from "../config/firebase";
+import { FETCH_USER } from "./types";
 
-export const signIn = (socialNetwork) => {
-  return dispatch => {
-    var provider = null;
-
-    switch (socialNetwork) {
-      case "FACEBOOK":
-        provider = new firebase.auth.FacebookAuthProvider()
-        provider.addScope("user_birthday")
-        break
-      case "GOOGLE":
-        provider = new firebase.auth.GoogleAuthProvider();
-        break
-      default:
-        return null;
+export const fetchUser = () => dispatch => {
+  authRef.onAuthStateChanged(user => {
+    if (user) {
+      dispatch({
+        type: FETCH_USER,
+        payload: user
+      });
+    } else {
+      dispatch({
+        type: FETCH_USER,
+        payload: null
+      });
     }
-    firebase.auth().signInWithPopup(provider)
-    .then(() =>
-      dispatch({ type: "LOGIN_SUCCESS" })
-    )
-    .catch(err =>
-      dispatch({ type: "LOGIN_ERROR", err })
-    )
-  }
-}
+  });
+};
 
-export const signOut = () => {
-  return dispatch => {
+export const signIn = socialNetwork => dispatch => {
+  authRef
+    .signInWithPopup(providers[socialNetwork])
+    .then(result => {
+      dispatch({
+        type: FETCH_USER,
+        payload: result
+      }); 
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
 
-    firebase.auth().signOut()
-      .then(() => {
-        dispatch({ type: "SIGNOUT_SUCCESS" })
-      })
-      .catch((err) => {
-        dispatch({ type: "SIGNOUT_ERROR", err })
-      })
-  }
-}
+export const signOut = () => dispatch => {
+  authRef
+    .signOut()
+    .then(() => {
+      // Sign-out successful.
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};

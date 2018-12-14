@@ -1,20 +1,10 @@
-const authReducer = (state = { authError: null }, action) => {
-  switch (action.type) {
-    case 'LOGIN_ERROR':
-      return {
-        ...state,
-        authError: 'Login failed'
-      }
-    case 'LOGIN_SUCCESS':
-      return {
-        ...state,
-        authError: null
-      }
-    case 'SIGNOUT_SUCCESS':
-    case 'SIGNOUT_ERROR':
-    default:
-      return state
-  }
-}
+import { FETCH_USER } from "../actions/types";
 
-export default authReducer
+export default (state = false, action) => {
+  switch (action.type) {
+    case FETCH_USER:
+      return action.payload || null;
+    default:
+      return state;
+  }
+};

@@ -1,9 +1,8 @@
-import authReducer from './auth'
-import bookings from '../reducers/booking'
+import bookings from './booking'
 import { combineReducers } from 'redux'
 import { carSearch, cars, carDetails } from './car'
-import { alerts } from '../reducers/alert'
-import { firebaseReducer } from 'react-redux-firebase'
+import { alerts } from './alert'
+import auth from './auth'
 
 const rootReducer = combineReducers({
   alerts,
@@ -11,8 +10,7 @@ const rootReducer = combineReducers({
   cars,
   carDetails,
   bookings,
-  auth: authReducer,
-  firebase: firebaseReducer
+  auth
  })
 
 export default rootReducer
