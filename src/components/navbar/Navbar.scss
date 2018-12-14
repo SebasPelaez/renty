@@ -2,6 +2,20 @@
 
 .navbar {
   background-color: #2e4053;
+
+  .btn-bookings {
+    color: $white;
+    font-weight: 100;
+    transition: font-weight .2s ease-in-out;
+
+    &:hover {
+      font-weight: 900;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
 }
 .navbar-brand {
   font-family: $font-family-brand;

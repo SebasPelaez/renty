@@ -15,3 +15,20 @@ $white: #ffffff;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.btn-red {
+  background-color: $red-dark;
+  color: $white;
+}
+
+// Mixins
+@mixin row-centered() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin column-centered() {
+  flex-direction: column;
+  @include row-centered();
+}

@@ -1,8 +1,7 @@
 import React from 'react'
 import Car from './Car'
 import './Car.scss'
-import { RENTAL_CARS } from '../../constants'
-import { receiveCars } from '../../actions/car'
+import EmptyState from '../../assets/empty-state.png'
 
 const CarList = ({ cars, isFetching, dispatch }) => {
 
@@ -10,9 +9,13 @@ const CarList = ({ cars, isFetching, dispatch }) => {
     return <span> Loading...</span>
   } else if (cars.length === 0) {
     return(
-      <p>Nothing to show!<br/>
-        Try With another word c:
-      </p>
+      <div className="nothing-to-show">
+        <img src={EmptyState} alt=""/>
+        <h3>The aren't records</h3>
+        <p>
+          Try use another filter options!
+        </p>
+      </div>
     )
   } else {
     return(

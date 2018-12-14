@@ -7,7 +7,7 @@ import App from './app/App'
 const Root = ({store}) => (
   <Provider store={store}>
     <Router>
-      <Route exact path="/" component={App} />
+      <Route path="/" component={App} />
     </Router>
   </Provider>
 )

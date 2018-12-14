@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { PROVIDER_IDS, PROVIDERS_API_URL } from '../constants'
+import { PROVIDER_IDS, PROVIDERS } from '../constants'
 
 export const REQUEST_CARS = 'REQUEST_CARS'
 export const RECEIVE_CARS = 'RECEIVE_CARS'
@@ -19,13 +19,6 @@ function receiveCars(data) {
     type: RECEIVE_CARS,
     cars: data,
     receivedAt: Date.now()
-  }
-}
-
-function searchCars(search) {
-  return {
-    type: SEARCH_CARS,
-    search
   }
 }
 
@@ -64,7 +57,7 @@ function shouldFetchDetails(state, id, provider) {
 function fetchCarDetails(carId, rentalId) {    
   return dispatch => {
     dispatch(requestCarDetail(carId, rentalId))
-    return axios.get(`${PROVIDERS_API_URL[rentalId]}/cars/${carId}`)
+    return axios.get(`${PROVIDERS[rentalId]}/cars/${carId}`)
       .then(
         res => dispatch(receiveCarDetails(carId, rentalId, res.data)),
         error => console.log('An error ocurred.', error)
@@ -88,7 +81,7 @@ export function fetchCars(search) {
     dispatch(requestCars(search))
     let searchParams = `from=${startDate}&to=${finishDate}&type=${search.type.id}&pickup=${search.pickup}`    
     PROVIDER_IDS.forEach(providerId => {
-      axios.get(`${PROVIDERS_API_URL[providerId]}/cars/search?${searchParams}`)
+      axios.get(`${PROVIDERS[providerId]}/cars/search?${searchParams}`)
       .then(
         res => dispatch(receiveCars(res.data)),
         error => console.log('An error ocurred.', error)

@@ -5,9 +5,13 @@ import avatar from "../assets/avatar.png";
 import "../index.scss";
 import ReactTooltip from "react-tooltip";
 
+
 const SignedInLinks = ({ userInfo, dispatch }) => {
   return (
     <div>
+      <Link to="/my_bookings" className="btn btn-bookings mr-3">
+        My Bookings
+      </Link>
       <img data-tip="Juan Esteban Marín" className="img-profile" src={avatar}></img>
       <button className="btn btn-outline-success my-2 my-sm-0" type="submit"
         onClick={ () => dispatch(signOut())}>
