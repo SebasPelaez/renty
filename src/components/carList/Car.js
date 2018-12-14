@@ -40,7 +40,6 @@ class Car extends React.Component{
           <FontAwesomeIcon icon="car" className="mr-2" fixedWidth />
           {this.props.type}
         </div>
-
         <div className="font-weight-bold my-4 price">
           <span className="mr-1 currency">COP$</span>
           <span className="amount">{this.props.price.toLocaleString()}</span>
