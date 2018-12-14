@@ -1,9 +1,9 @@
-import React from "react"
-import { connect } from "react-redux"
-import { signOut } from "../actions/auth"
-import avatar from "../assets/avatar.png"
-import "../index.scss"
-import ReactTooltip from "react-tooltip"
+import React from "react";
+import { connect } from "react-redux";
+import { signOut } from "../actions/auth";
+import avatar from "../assets/avatar.png";
+import "../index.scss";
+import ReactTooltip from "react-tooltip";
 
 const SignedInLinks = ({ userInfo, dispatch }) => {
   return (
@@ -19,7 +19,7 @@ const SignedInLinks = ({ userInfo, dispatch }) => {
   )
 }
 
-const mapStateToProps = state => ({ userInfo: state.firebase.auth })
+const mapStateToProps = (state) => ({ userInfo: state.firebase.auth });
 
 
- export default connect(mapStateToProps)(SignedInLinks)
+ export default connect(mapStateToProps)(SignedInLinks);
