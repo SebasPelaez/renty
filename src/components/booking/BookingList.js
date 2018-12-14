@@ -7,7 +7,12 @@ class BookingList extends Component {
   
   componentDidMount() {
     const { userId, fetchBookings } = this.props
-    fetchBookings(userId)
+    try {
+      fetchBookings(userId)
+    } catch {
+      console.log("Patch Enabled!")
+      this.props.putBookingsMock()
+    }
   }
   
   render() {
