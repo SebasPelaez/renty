@@ -1,8 +1,9 @@
 import React from 'react'
-import Searchbox from '../searchbox/Searchbox'
+import { Switch, Route } from 'react-router-dom'
 import NavbarContainer from '../../containers/NavbarContainer'
 import Footer from '../footer/Footer'
-import CarListContainer from '../../containers/CarListContainer'
+import BookingsListContainer from '../../containers/BookingListContainer'
+import Home from './Home'
 import './App.scss'
 
 const App = () => {
@@ -11,12 +12,10 @@ const App = () => {
       <NavbarContainer />
       <div className="app-wrapper">
         <div className="container">
-          <div className="row justify-content-center py-5">
-            <Searchbox />
-          </div>
-          <div className="row pb-5">
-            <CarListContainer />
-          </div>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/my_bookings' component={BookingsListContainer} />
+          </Switch>
         </div>
       </div>
       <Footer />

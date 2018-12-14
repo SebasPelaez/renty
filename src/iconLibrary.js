@@ -4,6 +4,7 @@ import {
   faPhone, 
   faPaperPlane,
   faMapMarkerAlt,
+  faMapMarkedAlt,
   faAngleDown,
   faBarcode,
   faUsers,
@@ -14,7 +15,8 @@ import {
   faStore,
   faStar,
   faCar,
-  faSuitcase
+  faSuitcase,
+  faCalendarAlt
 } from '@fortawesome/free-solid-svg-icons'
 
 export const addIconLibrary = () => {
@@ -23,6 +25,7 @@ export const addIconLibrary = () => {
     faPhone,
     faPaperPlane,
     faMapMarkerAlt,
+    faMapMarkedAlt,
     faAngleDown,
     faBarcode,
     faUsers,
@@ -33,6 +36,7 @@ export const addIconLibrary = () => {
     faStore,
     faStar,
     faCar,
-    faSuitcase
+    faSuitcase,
+    faCalendarAlt
   )
 }
