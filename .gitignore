@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+yarn.lock
+package-lock.json
 
 # testing
 /coverage
@@ -22,6 +24,3 @@ yarn-error.log*
 
 # NVM
 .nvmrc
-
-# Yarn
-yarn.lock
