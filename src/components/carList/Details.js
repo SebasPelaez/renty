@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import {Carousel} from 'react-responsive-carousel';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import './Details.scss'
+import {Carousel} from "react-responsive-carousel";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./Details.scss";
 
 const Details = (props) => {
 
-  const { carDetails } = props
+  const { carDetails } = props;
 
   return (
     <div className="container-flex">
@@ -21,7 +21,7 @@ const Details = (props) => {
       </div>
       <div className="item-flex margin-detail">
         <div className="clearfix">
-          <h5 className="float-left"><strong>{carDetails.brand + ' ' + carDetails.model} <span>{carDetails.type}</span></strong></h5>        
+          <h5 className="float-left"><strong>{carDetails.brand + " " + carDetails.model} <span>{carDetails.type}</span></strong></h5>        
         </div>
 
         <div className="container-flex-column">
@@ -32,10 +32,10 @@ const Details = (props) => {
 
               <div className="item-flex">
                 <ul>
-                  <li><FontAwesomeIcon icon='barcode' className="mr-2"/><span><strong>Plate:</strong> {carDetails.plate}</span></li>
-                  <li><FontAwesomeIcon icon='users' className="mr-2"/><span><strong>Capacity:</strong> {carDetails.capacity}</span></li>
-                  <li><FontAwesomeIcon icon='cogs' className="mr-2"/><span><strong>Transmission:</strong> {carDetails.transmission}</span></li>
-                  <li><FontAwesomeIcon icon='door-closed' className="mr-2"/><span><strong>Doors:</strong> {carDetails.doors}</span></li>
+                  <li><FontAwesomeIcon icon="barcode" className="mr-2"/><span><strong>Plate:</strong> {carDetails.plate}</span></li>
+                  <li><FontAwesomeIcon icon="users" className="mr-2"/><span><strong>Capacity:</strong> {carDetails.capacity}</span></li>
+                  <li><FontAwesomeIcon icon="cogs" className="mr-2"/><span><strong>Transmission:</strong> {carDetails.transmission}</span></li>
+                  <li><FontAwesomeIcon icon="door-closed" className="mr-2"/><span><strong>Doors:</strong> {carDetails.doors}</span></li>
                 </ul>
               </div>
 

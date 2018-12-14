@@ -1,9 +1,9 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { signOut } from '../actions/auth'
-import avatar from '../assets/avatar.png'
-import '../index.scss'
-import ReactTooltip from 'react-tooltip'
+import React from "react"
+import { connect } from "react-redux"
+import { signOut } from "../actions/auth"
+import avatar from "../assets/avatar.png"
+import "../index.scss"
+import ReactTooltip from "react-tooltip"
 
 const SignedInLinks = ({ userInfo, dispatch }) => {
   return (

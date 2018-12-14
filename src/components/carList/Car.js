@@ -1,13 +1,13 @@
-import React from 'react'
-import Modal from 'react-responsive-modal';
-import './Car.scss'
-import RentalCarDetails from '../../containers/RentalCarDetails'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from "react";
+import Modal from "react-responsive-modal";
+import "./Car.scss";
+import RentalCarDetails from "../../containers/RentalCarDetails";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 class Car extends React.Component{
   constructor(props){
-    super(props)
+    super(props);
   }
 
   state = {
@@ -37,7 +37,7 @@ class Car extends React.Component{
         </p>
 
         <div>
-          <FontAwesomeIcon icon='car' className="mr-2" fixedWidth />
+          <FontAwesomeIcon icon="car" className="mr-2" fixedWidth />
           {this.props.type}
         </div>
 
