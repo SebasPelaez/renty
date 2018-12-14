@@ -1,34 +1,27 @@
-import firebase from 'firebase'
+import firebase from "firebase";
 
 export const signIn = (socialNetwork) => {
   return dispatch => {
-    var provider
+    var provider = null;
 
     switch (socialNetwork) {
-      case 'FACEBOOK':
+      case "FACEBOOK":
         provider = new firebase.auth.FacebookAuthProvider()
-        provider.addScope('user_birthday')
-        firebase.auth().signInWithPopup(provider)
-          .then(() =>
-            dispatch({ type: 'LOGIN_SUCCESS' })
-          )
-          .catch(err =>
-            dispatch({ type: 'LOGIN_ERROR', err })
-          )
+        provider.addScope("user_birthday")
         break
-      case 'GOOGLE':
+      case "GOOGLE":
         provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(provider)
-          .then(() =>
-            dispatch({ type: 'LOGIN_SUCCESS' })
-          )
-          .catch(err =>
-            dispatch({ type: 'LOGIN_ERROR', err })
-          )
         break
       default:
-        return null
+        return null;
     }
+    firebase.auth().signInWithPopup(provider)
+    .then(() =>
+      dispatch({ type: "LOGIN_SUCCESS" })
+    )
+    .catch(err =>
+      dispatch({ type: "LOGIN_ERROR", err })
+    )
   }
 }
 
@@ -37,10 +30,10 @@ export const signOut = () => {
 
     firebase.auth().signOut()
       .then(() => {
-        dispatch({ type: 'SIGNOUT_SUCCESS' })
+        dispatch({ type: "SIGNOUT_SUCCESS" })
       })
       .catch((err) => {
-        dispatch({ type: 'SIGNOUT_ERROR', err })
+        dispatch({ type: "SIGNOUT_ERROR", err })
       })
   }
 }
