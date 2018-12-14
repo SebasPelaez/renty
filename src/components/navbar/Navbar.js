@@ -6,7 +6,7 @@ import './Navbar.scss'
 
 const Navbar = ({ auth }) => {
   
-  const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />
+  const links = auth ? <SignedInLinks /> : <SignedOutLinks />
 
   return (
     <nav className="navbar navbar-expand-lg justify-content-between">

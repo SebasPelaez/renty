@@ -10,7 +10,7 @@ import {
 
 const mapStateToProps = state => ({
   bookings: state.bookings,
-  userId: state.firebase.auth.uid
+  userId: '1234'
 })
 
 const mapDispatchToProps = dispatch => ({

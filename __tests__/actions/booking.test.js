@@ -62,10 +62,8 @@ describe('Booking async actions', () => {
     const store = mockStore({
       alerts: [],
       bookings: {},
-      firebase: {
-        stsTokenManager: {
-          accessToken: "5UP3R53CUR3"
-        }
+      auth: {
+        ra: "5UP3R53CUR3"
       }
     })
     const expectedActions = [
@@ -90,10 +88,8 @@ describe('Booking async actions', () => {
     const store = mockStore({
       alerts: [],
       bookings: {},
-      firebase: {
-        stsTokenManager: {
-          accessToken: "5UP3R53CUR3"
-        }
+      auth: {
+        ra: "5UP3R53CUR3"
       }
     })
     const bookingIdMock = '123'
@@ -122,10 +118,8 @@ describe('Booking async actions', () => {
     const store = mockStore({
       alerts: [],
       bookings: {},
-      firebase: {
-        stsTokenManager: {
-          accessToken: "5UP3R53CUR3"
-        }
+      auth: {
+        ra: "5UP3R53CUR3"
       }
     })
     const expectedActions = [{

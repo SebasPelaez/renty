@@ -13,7 +13,10 @@ const SignedInLinks = ({ userInfo, dispatch }) => {
       <Link to="/my_bookings" className="btn btn-bookings mr-3">
         My Bookings
       </Link>
-      <img data-tip="Juan Esteban Marín" className="img-profile" src={avatar}></img>
+      <img
+        data-tip={ userInfo.displayName || "Guess" }
+        className="img-profile" src={avatar}
+      />
       <button className="btn btn-outline-success my-2 my-sm-0" type="submit"
         onClick={ () => dispatch(signOut())}>
         Log Out
@@ -24,7 +27,7 @@ const SignedInLinks = ({ userInfo, dispatch }) => {
   )
 }
 
-const mapStateToProps = (state) => ({ userInfo: state.firebase.auth });
+const mapStateToProps = (state) => ({ userInfo: state.auth });
 
 
  export default connect(mapStateToProps)(SignedInLinks);
