@@ -1,9 +1,11 @@
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import BookingList from '../components/booking/BookingList'
+import { bookingsMock } from '../constants'
 import {
   fetchBookings,
-  cancelBooking
+  cancelBooking,
+  receiveBookings
 } from '../actions/booking'
 
 const mapStateToProps = state => ({
@@ -14,6 +16,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchBookings: userId => dispatch(fetchBookings(userId)),
   cancelBooking: (bookingId, rentalId) => dispatch(cancelBooking(bookingId, rentalId)),
+  putBookingsMock: () => dispatch(receiveBookings(bookingsMock))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BookingList))
